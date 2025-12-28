@@ -1,0 +1,222 @@
+/* ==========
+    PRESS RELEASE
+    ============= */
+
+
+   .pr-section {
+      max-width: 100%;
+      margin: auto;
+      border-top: 1px solid #999;
+      border-bottom: 1px solid #999;
+    }
+
+    
+
+    /* LEFT PANEL */
+    .pr-sidebar {
+      padding: 40px 60px;
+      border-right: 1px solid #999;
+    }
+
+    .pr-label {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .pr-heading {
+      font-size: 42px;
+      margin: 16px 0 30px;
+      font-weight: 500;
+    }
+
+    .pr-viewall-btn {
+      display: inline-flex;
+      align-items: center;
+      margin-top: -20px;
+      gap: 24px;
+      padding: 10px 38px; 
+      border: 1px solid #000;
+      border-radius: 999px;
+      background: #fff;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    /* RIGHT LIST */
+    /* .pr-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pr-row {
+      display: grid;
+      grid-template-columns: 140px 1fr 50px;
+      align-items: center;
+      padding: 30px 30px;
+      border-bottom: 1px solid #999;
+    }
+
+    .pr-row:last-child {
+      border-bottom: none;
+    }
+
+    .pr-date {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .pr-title {
+      font-size: 15px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding-right: 20px;
+    }
+
+    .pr-arrow {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #000;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      cursor: pointer;
+    } */
+     .pr-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ONE ROW */
+    .pr-row {
+      display: grid;
+      grid-template-columns: 1fr 60px;
+      align-items: center;
+      padding: 32px 40px;
+      border-bottom: 1px solid #999;
+    }
+
+    .pr-row:last-child {
+      border-bottom: none;
+    }
+
+    /* DATE + TITLE */
+    .pr-content {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .pr-date {
+      font-size: 17px;
+      color: #666;
+    }
+
+    .pr-title {
+      font-size: 17px;
+      line-height: 1.6;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* ARROW */
+    .pr-arrow {
+      width: 40px;
+      height: 40px;
+      background: #000;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .pr-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .pr-sidebar {
+        border-right: none;
+        border-bottom: 1px solid #999;
+      }
+    }
+    @media (max-width: 768px) {
+
+  /* SECTION */
+  .pr-section {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+  }
+
+  /* LAYOUT STACK */
+  .pr-layout {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  /* SIDEBAR → TOP */
+  .pr-sidebar {
+    padding: 24px 16px 20px;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .pr-label {
+    font-size: 13px;
+  }
+
+  .pr-heading {
+    font-size: 26px;
+    margin: 10px 0 16px;
+  }
+
+  .pr-viewall-btn {
+    margin-top: 0;
+    padding: 10px 26px;
+    font-size: 13px;
+    gap: 14px;
+  }
+
+  /* RIGHT LIST */
+  .pr-list {
+    padding: 0;
+  }
+
+  /* ROW */
+  .pr-row {
+    grid-template-columns: 1fr 40px;
+    padding: 18px 16px;
+  }
+
+  /* DATE + TITLE */
+  .pr-content {
+    gap: 4px;
+  }
+
+  .pr-date {
+    font-size: 13px;
+    color: #777;
+  }
+
+  .pr-title {
+    font-size: 14px;
+    line-height: 1.6;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* ARROW */
+  .pr-arrow {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,166 @@
+* {
+    box-sizing: border-box;
+    font-family: "Noto Sans JP", sans-serif;
+}
+.msg-wrapper {
+    display: grid;
+    position: relative;
+    grid-template-columns: 240px 1fr;
+    gap: 40px;
+    padding-top: 20px;
+    padding: 80px;
+}
+
+/* Sidebar */
+.sidebar {
+    background: #f6f7f7;
+    height: 300px;
+    border-radius: 14px;
+    padding: 20px;
+}
+
+.sidebar h3 {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+}
+
+.sidebar li {
+    padding: 10px 0;
+    color: #777;
+    cursor: pointer;
+}
+
+.sidebar li.active {
+    color: #2c8f85;
+    font-weight: 600;
+}
+
+/* Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+/* Card */
+.msg-card {
+    position: relative;
+    padding-bottom: 160px; /* reserve space for card-content */
+}
+
+.msg-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.msg-card-content {
+    position: absolute;
+    width:  300px;
+    height: 180px;
+    background: #fff;
+    padding: 18px;
+    margin-top: -40px;
+    margin-left: -20px;
+    border-radius: 16px;
+}
+
+.msg-card small {
+    color: #2c8f85;
+    width: 240px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.msg-card h4 {
+    font-size: 15px;
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+.msg-card .date {
+    color: #888;
+    font-size: 13px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        grid-template-columns: 1fr;
+    }
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* Full width light line */
+.edge-line {
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+
+  width: 100vw;
+  height: 2px;
+  background: #d9d9d9;
+}
+
+/* Small darker dash */
+.edge-line .edge-dash {
+  position: absolute;
+  left: 120px;   /* adjust to match screenshot */
+  top: -1px;
+
+  width: 60px;   /* dash length */
+  height: 3px;   /* dash thickness */
+  background: #666;
+}
+#msgDetail {
+    max-width: 1100px;
+}
+
+.detail-hero img {
+    width: 55%;
+    border-radius: 24px;
+}
+
+.detail-content {
+    background: #fff;
+    padding: 40px;
+    border-radius: 24px;
+    margin-top: -120px;
+    margin-left: auto;
+    width: 55%;
+}
+
+.detail-content h1 {
+    font-size: 28px;
+    line-height: 1.5;
+    margin: 15px 0;
+}
+
+.detail-body {
+    line-height: 2;
+    margin-top: 30px;
+}
+
+#backBtn {
+    margin-top: 40px;
+    padding: 12px 30px;
+    border-radius: 40px;
+    border: 1px solid #000;
+    background: #fff;
+    cursor: pointer;
+}
