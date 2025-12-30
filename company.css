@@ -6,7 +6,8 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, sans-serif;
+  /* font-family: "Helvetica Neue", Arial, sans-serif; */
+   font-family: "Noto Sans JP", sans-serif;
 }
 
 /* HERO */
@@ -18,7 +19,8 @@ body {
 
 /* LEFT IMAGE */
 .hero-image {
-  width: 55%;
+  width: 100%;
+  height: 480px;
   position: relative;
 }
 
@@ -26,14 +28,14 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 0px 0px 0px 20px;
+  border-radius: 0px 0px 0px 50px;
 }
 
 /* BRAND TEXT */
 .brand {
-  position: absolute;
-  top: 40px;
-  left: 40px;
+  position: relative;
+  top: 30px;
+  left: 20px;
   font-weight: 800;
   letter-spacing: 0.1em;
   font-size: 28px;
@@ -42,27 +44,29 @@ body {
 
 /* RIGHT CONTENT */
 .hero-content {
+  position: absolute;
+  margin-top: 230px;
+  margin-left: -120px;
   background: #fff;
-  padding: 200px 100px;
   position: relative;
 }
 .hero-content h1 {
-    font-size: 30px;
-    font-weight: 700;
+    font-size: 22pt;
+    /* font-weight: 700; */
     color: #008a7c;
-    margin-bottom: 15px;
 }
 .hero-content p {
-    font-size: 60px;
-    font-weight: 700;
+    font-size: 51pt;
+    /* font-weight: 700; */
     
 }
 
 
 .jp-text {
-  font-size: 20px !important;
-  margin-top: 150px;
-  font-weight: 500 !important;
+  font-size: 18pt !important;
+  line-height: 40px;
+  color: #666;
+  font-weight: 200 !important;
 }
 
 /* .hero-content h1 {
@@ -93,13 +97,15 @@ body {
 /* NAVBAR – SLIM VERSION (REFERENCE ACCURATE) */
 /* ULTRA THIN GLASS NAV */
 .hero-nav {
+  width: 960px;              /* ⬅ exact */
+  height: 60px;
   position: absolute;
   top: 24px;
   right: 32px;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(243, 243, 243, 0.6);
   backdrop-filter: blur(8px);
   border-radius: 999px;
-  padding: 16px 30px;          /* ⬅ slightly thicker */
+  padding: 16px;          /* ⬅ slightly thicker */
   display: flex;
   align-items: center;
   gap: 16px;
@@ -111,7 +117,8 @@ body {
   display: flex;
   gap: 30px;
   list-style: none;
-  font-size: 12px;            /* ⬅ balanced */
+  font-size: 12px;
+  font-weight: 100;            /* ⬅ balanced */
   line-height: 1.2;
   white-space: nowrap;
 }
@@ -160,7 +167,9 @@ body {
 
 /* CONTENT CARD */
 .hero-content {
-  position: relative;      /* stays inside hero */
+  position: absolute;   
+  top: 380px;
+  margin-left: 30px;/* stays inside hero */
   width: 100%;
   background: #fff;
   margin-top: auto;        /* push to bottom */
@@ -169,13 +178,21 @@ body {
   z-index: 2;
   border-radius: 0 40px 0 0;
 }
+.hero-content p {
+    font-size: 40pt;
+    /* font-weight: 700; */
+    
+}
 
 
   .jp-text {
-    font-size: 24px;
+
+    font-size: 14pt !important;
     width: 100%;
-    margin-top: 80px;
-    margin-left: 10px;
+    margin-left: 20px;
+  line-height: 40px;
+  color: #666;
+  font-weight: 200 !important;
   }
 
   .hero-content h1 {
@@ -190,6 +207,14 @@ body {
   .scroll-vertical {
     display: none;
   }
+  .brand {
+  position: absolute;      /* REQUIRED */
+  top: 20px;
+  left: 20px;
+  font-size: 20px;
+  color: #000000;             /* visible on image */
+  z-index: 10;             /* bring above image */
+}
   
 }
 /* HIDE ON DESKTOP */
@@ -274,16 +299,16 @@ body {
 /* Mobile */
 @media screen and (max-width: 480px) {
   .hero-content {
-    padding: 40px 20px;
+    padding: 0px 20px;
   }
 
   .jp-text {
-    font-size: 18px;
+    font-size: 16px;
     margin-top: 10px;
   }
 
   .hero-content h1 {
-    font-size: 32px;
+    font-size: 20px;
   }
 
   .brand {
@@ -314,21 +339,26 @@ body {
 
 /* LEFT */
 .philosophy-text {
+  font-size: 24px;
+  font-weight: 100;
   flex: 1;
 }
 
 .small-title {
-  font-size: 14px;
+  font-size: 18px;
+  font-weight: 100;
   color: #777;
 }
 
 .jp-title {
   font-size: 36px;
+  font-weight: 100;
   margin: 10px 0 30px;
 }
 
 .headline {
   font-size: 22px;
+  font-weight: 100;
   margin-bottom: 20px;
 }
 
@@ -354,16 +384,40 @@ body {
 @media (max-width: 900px) {
   .philosophy-wrap {
     flex-direction: column;
-    text-align: center;
-  }
-
-  .jp-title {
-    font-size: 30px;
+    text-align: left;
   }
 
   .philosophy-image {
-    margin-top: 30px;
+    margin-top: 0px;
   }
+  .philosophy-text {
+  font-size: 18px;
+  font-weight: 100;
+  flex: 1;
+}
+
+.small-title {
+  font-size: 18px;
+  font-weight: 100;
+  color: #777;
+}
+
+.jp-title {
+  font-size: 36px;
+  font-weight: 100;
+  margin: 10px 0 30px;
+}
+
+.headline {
+  font-size: 22px;
+  font-weight: 100;
+  margin-bottom: 20px;
+}
+
+.philosophy-text p {
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
 }
 /* company data  */
 
@@ -433,6 +487,11 @@ body {
   .company-title {
     font-size: 24px;
   }
+  .headline {
+  font-size: 24px;
+  font-weight: 100;
+  margin-bottom: 20px;
+}
 }
 
 
@@ -1197,4 +1256,23 @@ body {
     grid-template-columns: 1fr;
     gap: 32px;
   }
+}
+.edge-line {
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+  width: 100vw;
+  height: 2px;
+  background: #d9d9d9;
+}
+
+/* Small darker dash */
+.edge-line .edge-dash {
+  position: absolute;
+  left: 120px;   /* adjust to match screenshot */
+  top: -1px;
+
+  width: 60px;   /* dash length */
+  height: 3px;   /* dash thickness */
+  background: #666;
 }

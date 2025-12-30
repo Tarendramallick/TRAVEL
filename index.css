@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, sans-serif;
+   font-family: "Noto Sans JP", sans-serif;
 }
 
 /* HERO */
@@ -81,13 +81,15 @@ body {
 /* NAVBAR – SLIM VERSION (REFERENCE ACCURATE) */
 /* ULTRA THIN GLASS NAV */
 .hero-nav {
+  width: 960px;              /* ⬅ exact */
+  height: 60px;
   position: absolute;
   top: 24px;
   right: 32px;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(243, 243, 243, 0.6);
   backdrop-filter: blur(8px);
   border-radius: 999px;
-  padding: 16px 30px;          /* ⬅ slightly thicker */
+  padding: 16px;          /* ⬅ slightly thicker */
   display: flex;
   align-items: center;
   gap: 16px;
@@ -513,7 +515,6 @@ GROWTH
   margin-top: 20px;
   margin-bottom: 80px;
   display: flex;
-  gap: 10px;
 }
 .slider-nav button {
   width: 36px;
@@ -655,11 +656,11 @@ GROWTH
   }
 
   /* ===== SLIDER BUTTONS ===== */
-  .slider-nav {
-    margin-left: auto;
-    margin-top: 16px;
-    margin-bottom: 40px;
-    gap: 8px;
+   .slider-nav{
+    margin-left:80%;
+    margin-top: 20px;
+    margin-bottom: 80px;
+    display: flex;
   }
 }
 

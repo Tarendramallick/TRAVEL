@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, sans-serif;
+   font-family: "Roboto", "Noto Sans JP", sans-serif;
 }
 
 /* HERO */
@@ -93,13 +93,15 @@ body {
 /* NAVBAR – SLIM VERSION (REFERENCE ACCURATE) */
 /* ULTRA THIN GLASS NAV */
 .hero-nav {
+  width: 960px;              /* ⬅ exact */
+  height: 60px;
   position: absolute;
   top: 24px;
   right: 32px;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(243, 243, 243, 0.6);
   backdrop-filter: blur(8px);
   border-radius: 999px;
-  padding: 16px 30px;          /* ⬅ slightly thicker */
+  padding: 16px;          /* ⬅ slightly thicker */
   display: flex;
   align-items: center;
   gap: 16px;
@@ -132,11 +134,77 @@ body {
   display: none;
 }
 
-
 @media screen and (max-width: 768px) {
   .hero {
+  position: relative;      /* anchor children */
+  height: 100vh;           /* full hero section */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* IMAGE */
+.hero-image {
+  width: 90%;
+  height: 50%;
+  right: auto;
+  position: absolute;
+  inset: 0;                /* top:0 right:0 bottom:0 left:0 */
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  transform: translateX(38px);
+  object-fit: cover;
+}
+.brand {
+  position: absolute;      /* REQUIRED */
+  top: 20px;
+  left: 20px;
+  font-size: 20px;
+  color: #000000;             /* visible on image */
+  z-index: 10;     
+}
+  .hero-content {
+    top: 400px;
+    left: 10px;
+    position: absolute;
+    width: 100%;
+    padding: 40px 20px;
+  }
+
+
+  .jp-text {
+    position: absolute;
+    font-size: 20px;
+    width: 100%;
+    margin-top: 80px;
+    margin-left: 10px;
+  }
+
+  .hero-content h1 {
+    font-size: 18px;
+  }
+  .hero-content p {
+      font-size: 34px;
+      font-weight: 700;
+      
+  }
+
+  .hero-nav {
+    display: none;
+  }
+
+  .scroll-vertical {
+    display: none;
+  }
+  
+}
+/* @media screen and (max-width: 768px) {
+  .hero {
     height: auto;
-    flex-direction: column; /* stack image and content */
+    flex-direction: column; stack image and content
   }
 
   .hero-image,
@@ -167,7 +235,7 @@ body {
     display: none;
   }
   
-}
+} */
 /* HIDE ON DESKTOP */
 .mobile-header {
   display: none;
@@ -333,25 +401,29 @@ body {
 /* week sections */
 
 .travel-section {
-  background: #f2f3f2;
-  border-radius: 40px;
+ background: #f2f3f2;
+  border-radius: 0 40px 40px 0;
   padding: 70px 50px;
-  max-width: 1200px;
-  margin: 60px auto;
+  max-width: 96%;
+  margin: 60px 0 100px 0; /* left aligned */
   position: relative;
 }
 
 /* TITLE PILL */
 .title-pill {
-  position: absolute;
-  top: -30px;
+  position: relative;
+  width: 400px;
+  height: 90px;
+  top: -115px;
   left: 50%;
+  text-align: center;
   transform: translateX(-50%);
   background: #3e857c;
   color: #fff;
   padding: 16px 44px;
   border-radius: 999px;
-  font-size: 18px;
+  font-size: 20px;
+  align-content: center;
   font-weight: 600;
 }
 
@@ -359,6 +431,7 @@ body {
 .content {
   display: flex;
   align-items: center;
+  padding-left: 80px;
   gap: 60px;
 }
 
@@ -398,26 +471,30 @@ body {
 /* four card  */
 
  .service-section {
-      max-width: 1200px;
-      margin: auto;
-      background: #f3f3f3;
-      border-radius: 40px;
-      padding: 90px 60px 60px;
-      position: relative;
-    }
-
+  max-width: 96%;
+  margin: 60px 0 60px auto; /* RIGHT aligned */
+  background: #f3f3f3;
+  border-radius: 40px 0 0 40px;
+  padding: 90px 60px 60px;
+  position: relative;
+}
     /* TITLE PILL */
     .service-title {
-      position: absolute;
-      top: -32px;
+      position: relative;
+      width: 400px;
+      height: 90px;
+      top: -115px;
       left: 50%;
-      transform: translateX(-50%);
+      text-align: center;
+      transform: translateX(-66%);
       background: #3f877d;
       color: #fff;
       padding: 18px 80px;
       border-radius: 999px;
       font-size: 20px;
       font-weight: 600;
+      text-align: center;
+      align-content: center;
       letter-spacing: 0.05em;
     }
 
@@ -461,9 +538,97 @@ body {
       line-height: 1.9;
       color: #333;
     }
+    /* =========================
+   MOBILE (PHONE VIEW)
+========================= */
+@media (max-width: 768px) {
+
+  /* ===== TRAVEL SECTION ===== */
+  .travel-section {
+  max-width: 100%;
+    margin: 40px 16px 80px;   /* 🔥 left & right margin */
+    padding: 50px 16px 40px;
+    border-radius: 24px;
+  }
+  /* Title pill */
+  .title-pill {
+    width: auto;
+    height: auto;
+    padding: 14px 28px;
+    font-size: 16px;
+    top: -32px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 999px;
+  }
+
+  /* Content stack */
+  .content {
+    flex-direction: column;
+    padding-left: 0;
+    gap: 24px;
+    text-align: center;
+  }
+
+  .left-image {
+    max-width: 100%;
+  }
+
+  .right {
+    font-size: 14px;
+    line-height: 1.9;
+  }
+
+  .right br {
+    display: none; /* 🔥 remove forced line breaks on mobile */
+  }
+
+  /* ===== SERVICE SECTION ===== */
+  /* SERVICE SECTION */
+  .service-section {
+    max-width: 100%;
+    margin: 40px 16px;        /* 🔥 left & right margin */
+    padding: 50px 16px 40px;
+    border-radius: 24px;
+  }
+
+  /* Service title pill */
+  .service-title {
+    width: auto;
+    height: auto;
+    padding: 14px 36px;
+    font-size: 16px;
+    top: -32px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 999px;
+    letter-spacing: 0.04em;
+  }
+
+  /* Service cards → 1 per row */
+  .service-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .service-card {
+    padding: 24px 22px;
+    border-radius: 22px;
+  }
+
+  .card-title {
+    font-size: 16px;
+  }
+
+  .card-text {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+}
+
 
     /* RESPONSIVE */
-    @media (max-width: 768px) {
+    /* @media (max-width: 768px) {
       .service-section {
         padding: 80px 24px 40px;
         border-radius: 28px;
@@ -491,7 +656,7 @@ body {
       .card-text {
         font-size: 14px;
       }
-    }
+    } */
 
     /* travel together section */
 
@@ -577,6 +742,7 @@ body {
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
+  
   .future-container {
     flex-direction: column;
     gap: 60px;
@@ -584,6 +750,8 @@ body {
 
   .main-title {
     font-size: 32px;
+    font-weight: 100;
+    margin-bottom: 250px;
   }
 
   .future-image img {
@@ -595,27 +763,29 @@ body {
 
  /* SECTION */
     .message-section {
-      max-width: 1300px;
+      max-width: 100%;
       margin: auto;
       position: relative;
+      overflow: hidden;
     }
 
     /* BACKGROUND TEXT */
     .bg-text {
       position: absolute;
-      bottom: -20px;
-      left: 0;
-      font-size: 160px;
+      bottom: 60px;
+      left: -325px;
+      font-size: 160px ;
       font-weight: 700;
       color: rgba(0, 0, 0, 0.05);
       white-space: nowrap;
       pointer-events: none;
       z-index: 0;
     }
-
+    
     /* CONTENT */
     .message-content {
       display: flex;
+      margin: 60px;
       align-items: flex-start;
       gap: 80px;
       position: relative;
@@ -626,6 +796,7 @@ body {
     .message-image {
       width: 520px;
       flex-shrink: 0;
+      margin-bottom: 80px;
     }
 
     .message-image img {
@@ -652,29 +823,29 @@ body {
       font-weight: 500;
     }
 
-    /* RESPONSIVE */
-    @media (max-width: 1024px) {
-      .bg-text {
-        font-size: 110px;
-      }
-
-      .message-content {
-        gap: 40px;
-      }
-    }
-
     @media (max-width: 768px) {
-      body {
-        padding: 40px 16px;
+
+      .message-section {
+        max-width: 100%;
+        margin: auto;
+        position: relative; /* ensures absolutely positioned children are relative to this */
+        overflow: visible;  /* allow the image to be visible outside section bounds */
       }
 
       .message-content {
+        display: flex;
         flex-direction: column;
         gap: 32px;
+        position: relative; /* optional, but can help with layering */
+        z-index: 1;         /* keep content above/below image if needed */
       }
 
       .message-image {
+        position: absolute;
+        top: -1100px;             /* bring it into view */
+        left: 0;            /* align to left */
         width: 100%;
+        z-index: 10;        /* higher than other elements to be in front */
       }
 
       .message-text {
@@ -683,8 +854,7 @@ body {
       }
 
       .bg-text {
-        font-size: 64px;
-        bottom: -10px;
+        display: none;
       }
     }
 

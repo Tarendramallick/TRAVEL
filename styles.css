@@ -106,6 +106,61 @@
         grid-template-columns: 1fr;
     }
 }
+@media (max-width: 768px) {
+
+  /* Main layout */
+  .msg-wrapper {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 20px;
+  }
+
+  /* Hide sidebar on phone (like screenshot) */
+  .sidebar {
+    display: none;
+  }
+
+  /* Single column cards */
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  /* Card layout */
+  .msg-card {
+    padding-bottom: 140px;
+  }
+
+  .msg-card img {
+    height: 200px;
+    border-radius: 14px;
+  }
+
+  /* White overlapping card */
+  .msg-card-content {
+    position: absolute;
+    width: calc(100% - 32px);
+    left: -10px;
+    bottom: 10px;
+    margin: 0;
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .msg-card small {
+    font-size: 11px;
+  }
+
+  .msg-card h4 {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .msg-card .date {
+    font-size: 12px;
+  }
+}
+
 /* Full width light line */
 .edge-line {
   position: relative;

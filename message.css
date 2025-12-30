@@ -93,13 +93,15 @@ body {
 /* NAVBAR – SLIM VERSION (REFERENCE ACCURATE) */
 /* ULTRA THIN GLASS NAV */
 .hero-nav {
+  width: 960px;              /* ⬅ exact */
+  height: 60px;
   position: absolute;
   top: 24px;
   right: 32px;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(243, 243, 243, 0.6);
   backdrop-filter: blur(8px);
   border-radius: 999px;
-  padding: 16px 30px;          /* ⬅ slightly thicker */
+  padding: 16px;          /* ⬅ slightly thicker */
   display: flex;
   align-items: center;
   gap: 16px;
@@ -135,28 +137,60 @@ body {
 
 @media screen and (max-width: 768px) {
   .hero {
-    height: auto;
-    flex-direction: column; /* stack image and content */
-  }
+  position: relative;      /* anchor children */
+  height: 100vh;           /* full hero section */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
 
-  .hero-image,
+/* IMAGE */
+.hero-image {
+  width: 90%;
+  height: 50%;
+  right: auto;
+  position: absolute;
+  inset: 0;                /* top:0 right:0 bottom:0 left:0 */
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  transform: translateX(38px);
+  object-fit: cover;
+}
+.brand {
+  position: absolute;      /* REQUIRED */
+  top: 20px;
+  left: 20px;
+  font-size: 20px;
+  color: #000000;             /* visible on image */
+  z-index: 10;     
+}
   .hero-content {
+    top: 400px;
+    left: 10px;
+    position: absolute;
     width: 100%;
+    padding: 40px 20px;
   }
 
-  .hero-content {
-    padding: 80px 40px;
-  }
 
   .jp-text {
-    font-size: 24px;
+    position: absolute;
+    font-size: 20px;
+    width: 100%;
     margin-top: 80px;
     margin-left: 10px;
   }
 
   .hero-content h1 {
-    font-size: 48px;
-    margin-left: 10px;
+    font-size: 18px;
+  }
+  .hero-content p {
+      font-size: 34px;
+      font-weight: 700;
+      
   }
 
   .hero-nav {
@@ -256,10 +290,6 @@ body {
   .jp-text {
     font-size: 18px;
     margin-top: 10px;
-  }
-
-  .hero-content h1 {
-    font-size: 32px;
   }
 
   .brand {
@@ -1162,7 +1192,7 @@ body {
   }
 
   .footer {
-    padding: 60px 0 0px;
+    padding: 0px 0 0px;
   }
 
   .footer-grid {
