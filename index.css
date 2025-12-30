@@ -255,6 +255,7 @@ body {
   }
 
   .brand {
+    position: fixed;
     font-size: 20px;
     top: 20px;
     left: 20px;
