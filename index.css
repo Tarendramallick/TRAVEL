@@ -181,6 +181,7 @@ body {
 
   /* HAMBURGER BUTTON */
   .mobile-hamburger {
+    position: fixed;
     width: 52px;
     height: 52px;
     background: #000;
