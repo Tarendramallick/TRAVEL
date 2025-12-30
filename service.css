@@ -842,7 +842,7 @@ body {
 
       .message-image {
         position: absolute;
-        top: -1100px;             /* bring it into view */
+        top: -1200px;             /* bring it into view */
         left: 0;            /* align to left */
         width: 100%;
         z-index: 10;        /* higher than other elements to be in front */
