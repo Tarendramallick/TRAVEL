@@ -193,21 +193,38 @@ slider.addEventListener("mouseleave", () => {
       cards.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     });
   });
-  document.addEventListener("DOMContentLoaded", function () {
+//   
+// Mobile Hamburger Toggle
+(function() {
   const hamburger = document.getElementById("hamburger");
   const mobileMenu = document.getElementById("mobileMenu");
 
-  if (!hamburger || !mobileMenu) {
-    console.warn("Hamburger menu elements not found");
-    return;
-  }
+  if (!hamburger || !mobileMenu) return;
 
-  hamburger.addEventListener("click", function (e) {
+  // Toggle menu on click
+  hamburger.addEventListener("click", (e) => {
     e.stopPropagation();
     mobileMenu.classList.toggle("active");
     hamburger.classList.toggle("active");
   });
-});
+
+  // Close menu when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest("#hamburger") && !e.target.closest("#mobileMenu")) {
+      mobileMenu.classList.remove("active");
+      hamburger.classList.remove("active");
+    }
+  });
+
+  // Close menu when clicking any link
+  mobileMenu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.remove("active");
+      hamburger.classList.remove("active");
+    });
+  });
+})();
+
 function scrollToTop() {
   window.scrollTo({
     top: 0,

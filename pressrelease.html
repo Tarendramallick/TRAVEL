@@ -8,30 +8,20 @@
     <link rel="stylesheet" href="message.css" />
     <link rel="stylesheet" href="press.css" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/nav.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
     <header class="hero">
-        <!-- MOBILE HEADER -->
-        <!-- LEFT IMAGE -->
-        <div class="hero-image">
-            <!-- <img
-          src="images/WhatsApp Image 2025-12-21 at 00.46.16.jpeg"
-          alt="Travel"
-        /> -->
-            <div class="hero-content">
+        <div class="hero-content">
 
             <h1>● PRESS RELEASE</h1>
                 <p>
                     代表メッセージ
                 </p>
-                <!-- <p class="jp-text">旅は、ただの移動ではなく人生を豊かにする体験。代表の想い
-                を綴った短いコラムを通して、トラベル・スタンダード・ジャ
-                パンが大切にする旅の姿をお届けします。</p> -->
-
-
             </div>
             <div class="brand">
                 TRAVEL<br />
@@ -39,24 +29,6 @@
                 JAPAN
             </div>
         </div>
-
-        <!-- RIGHT CONTENT -->
-        <div class="hero-image">
-            <img src="images/WhatsApp Image 2025-12-21 at 00.46.16.jpeg" alt="Travel" />
-            <!-- <p class="jp-text">あなたと旅のあいだに。</p>
-
-        <h1>
-          TRAVEL<br />
-          STANDARD<br />
-          JAPAN
-        </h1> -->
-
-            <!-- <div class="scroll-vertical">
-                <span>SCROLL</span>
-                <div class="line"></div>
-            </div> -->
-        </div>
-
         <!-- NAVBAR -->
         <div class="mobile-header">
             <div class="mobile-hamburger" id="hamburger">
@@ -68,27 +40,31 @@
 
         <!-- MOBILE MENU -->
         <div class="mobile-menu" id="mobileMenu">
-            <ul>
-                <li>企業情報トップ</li>
-                <li>代表メッセージ</li>
-                <li>会社概要</li>
-                <li>事業内容</li>
-                <li>私たちが選ばれる理由</li>
-                <li>スタッフのおすすめ旅行先</li>
-                <li>プレスリリース</li>
-            </ul>
+        <ul>
+            <li><a href="index.html">企業情報トップ</a></li>
+            <li><a href="message.html">代表メッセージ</a></li>
+            <li><a href="companyProfile.html">会社概要</a></li>
+            <li><a href="servicePage.html">事業内容</a></li>
+            <li><a href="whychoose.html">私たちが選ばれる理由</a></li>
+            <li><a href="recentTravel.html">スタッフのおすすめ旅行先</a></li>
+            <li><a href="pressrelease.html">プレスリリース</a></li>
+        </ul>
         </div>
+
         <nav class="hero-nav">
-            <ul>
-                <li>企業情報トップ</li>
-                <li>代表メッセージ</li>
-                <li>会社概要</li>
-                <li>事業内容</li>
-                <li>私たちが選ばれる理由</li>
-                <li>スタッフのおすすめ旅行先</li>
-                <li>プレスリリース</li>
-            </ul>
-            <button>旅行予約サイト</button>
+        <ul>
+           <li><a href="index.html">企業情報トップ</a></li>
+            <li><a href="message.html">代表メッセージ</a></li>
+            <li><a href="companyProfile.html">会社概要</a></li>
+            <li><a href="servicePage.html">事業内容</a></li>
+            <li><a href="whychoose.html">私たちが選ばれる理由</a></li>
+            <li><a href="recentTravel.html">スタッフのおすすめ旅行先</a></li>
+            <li><a href="pressrelease.html">プレスリリース</a></li>
+        </ul>
+
+        <button onclick="window.location.href='https://example-travel-booking.com'">
+            旅行予約サイト
+        </button>
         </nav>
 
     </header>
@@ -113,8 +89,8 @@
                 </aside>
 
                 <!-- msg-cards -->
-                 <section class="press-wrapper">
-                <section class="pr-section">
+                <section class="press-wrapper">
+                <div class="pr-section">
                     <div class="pr-layout">
                     <!-- RIGHT -->
                     <div class="pr-list">
@@ -228,7 +204,7 @@
 
                         <div class="pr-row">
                             <div class="pr-content">
-                            <div class="pr-date">2025.10.10</div>
+                            <div class="pr-date">2024.10.10</div>
                             <div class="pr-title">
                                 年末年始休業のお知らせあああああああああああああああああああああ…
                             </div>
@@ -240,7 +216,7 @@
 
 
                     </div>
-                </section>
+                </div>
             </section>
                 <section id="msg-detail" style="display:none;">
                     <div class="detail-layout">
@@ -392,3 +368,55 @@
 </body>
 
 </html>
+<script>
+window.addEventListener("load", function() {
+  const hamburger = document.getElementById("hamburger");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  if (!hamburger || !mobileMenu) {
+    console.warn("Hamburger or mobile menu not found");
+    return;
+  }
+
+  hamburger.addEventListener("click", function(e) {
+    e.stopPropagation();
+    mobileMenu.classList.toggle("active");
+    hamburger.classList.toggle("active");
+  });
+
+  document.addEventListener("click", function(e) {
+    if (!e.target.closest("#hamburger") && !e.target.closest("#mobileMenu")) {
+      mobileMenu.classList.remove("active");
+      hamburger.classList.remove("active");
+    }
+  });
+});
+</script>
+<script>
+window.addEventListener("DOMContentLoaded", () => {
+  const yearFilter = document.getElementById("yearFilter");
+  const filterItems = yearFilter.querySelectorAll("li");
+  const prRows = document.querySelectorAll(".pr-row"); // your press rows
+
+  filterItems.forEach(item => {
+    item.addEventListener("click", () => {
+      // Remove active class from all
+      filterItems.forEach(i => i.classList.remove("active"));
+      item.classList.add("active");
+
+      const year = item.dataset.year;
+
+      prRows.forEach(row => {
+        const rowDate = row.querySelector(".pr-date").textContent.trim();
+        const rowYear = rowDate.split(".")[0]; // Extract year from 2025.10.10
+
+        if (year === "all" || rowYear === year) {
+          row.style.display = "flex"; // or "block" depending on your layout
+        } else {
+          row.style.display = "none";
+        }
+      });
+    });
+  });
+});
+</script>

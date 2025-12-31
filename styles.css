@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-family: "Noto Sans JP", sans-serif;
+    font-family: "Roboto", "Noto Sans JP", sans-serif;
 }
 .msg-wrapper {
     display: grid;
@@ -107,23 +107,27 @@
     }
 }
 @media (max-width: 768px) {
-
   /* Main layout */
   .msg-wrapper {
+    display: grid;
     grid-template-columns: 1fr;
     gap: 24px;
     padding: 20px;
   }
 
-  /* Hide sidebar on phone (like screenshot) */
-  .sidebar {
-    display: none;
-  }
-
-  /* Single column cards */
+  /* Sidebar now moves below cards */
   .grid {
+    order: 1; /* cards first */
     grid-template-columns: 1fr;
     gap: 28px;
+  }
+
+  .sidebar {
+    display: block;
+    order: 2; /* sidebar after cards */
+    width: 100%;
+    padding: 16px;
+    margin-top: 20px;
   }
 
   /* Card layout */
@@ -160,6 +164,7 @@
     font-size: 12px;
   }
 }
+
 
 /* Full width light line */
 .edge-line {

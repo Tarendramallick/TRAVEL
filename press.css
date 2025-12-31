@@ -1,8 +1,27 @@
 /* ==========
     PRESS RELEASE
     ============= */
-
-
+    .hero {
+    display: flex;
+    height: 40vh;
+    position: relative;
+    }
+    .hero-content {
+    background: #fff;
+    padding: 150px 100px;
+    position: relative;
+    }
+     @media (max-width: 786px) {
+      .hero {
+        min-height: 200px;
+      }
+      .hero-content {
+      top: 0;
+      padding: 150px 10px;
+      background: #fff;
+      position: relative;
+      }
+    }
    .pr-section {
       max-width: 100%;
       margin: auto;
@@ -219,4 +238,7 @@
     height: 32px;
     font-size: 14px;
   }
+}
+.edge-line {
+  display: none;
 }

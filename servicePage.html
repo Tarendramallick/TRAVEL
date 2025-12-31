@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TRAVEL STANDARD JAPAN - 企業情報トップ</title>
     <link rel="stylesheet" href="service.css" />
+    <link rel="stylesheet" href="css/nav.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 
@@ -67,30 +68,37 @@
 
         <!-- MOBILE MENU -->
         <div class="mobile-menu" id="mobileMenu">
-            <ul>
-                <li>企業情報トップ</li>
-                <li>代表メッセージ</li>
-                <li>会社概要</li>
-                <li>事業内容</li>
-                <li>私たちが選ばれる理由</li>
-                <li>スタッフのおすすめ旅行先</li>
-                <li>プレスリリース</li>
-            </ul>
+        <ul>
+            <li><a href="index.html">企業情報トップ</a></li>
+            <li><a href="message.html">代表メッセージ</a></li>
+            <li><a href="companyProfile.html">会社概要</a></li>
+            <li><a href="servicePage.html">事業内容</a></li>
+            <li><a href="whychoose.html">私たちが選ばれる理由</a></li>
+            <li><a href="recentTravel.html">スタッフのおすすめ旅行先</a></li>
+            <li><a href="pressrelease.html">プレスリリース</a></li>
+        </ul>
         </div>
+
         <nav class="hero-nav">
-            <ul>
-                <li>企業情報トップ</li>
-                <li>代表メッセージ</li>
-                <li>会社概要</li>
-                <li>事業内容</li>
-                <li>私たちが選ばれる理由</li>
-                <li>スタッフのおすすめ旅行先</li>
-                <li>プレスリリース</li>
-            </ul>
-            <button>旅行予約サイト</button>
+        <ul>
+           <li><a href="index.html">企業情報トップ</a></li>
+            <li><a href="message.html">代表メッセージ</a></li>
+            <li><a href="companyProfile.html">会社概要</a></li>
+            <li><a href="servicePage.html">事業内容</a></li>
+            <li><a href="whychoose.html">私たちが選ばれる理由</a></li>
+            <li><a href="recentTravel.html">スタッフのおすすめ旅行先</a></li>
+            <li><a href="pressrelease.html">プレスリリース</a></li>
+        </ul>
+
+        <button onclick="window.location.href='https://example-travel-booking.com'">
+            旅行予約サイト
+        </button>
         </nav>
 
     </header>
+    <div class="edge-line">
+    <span class="edge-dash"></span>
+    </div>
   
 
 
@@ -441,3 +449,27 @@
 </body>
 
 </html>
+<script>
+window.addEventListener("load", function() {
+  const hamburger = document.getElementById("hamburger");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  if (!hamburger || !mobileMenu) {
+    console.warn("Hamburger or mobile menu not found");
+    return;
+  }
+
+  hamburger.addEventListener("click", function(e) {
+    e.stopPropagation();
+    mobileMenu.classList.toggle("active");
+    hamburger.classList.toggle("active");
+  });
+
+  document.addEventListener("click", function(e) {
+    if (!e.target.closest("#hamburger") && !e.target.closest("#mobileMenu")) {
+      mobileMenu.classList.remove("active");
+      hamburger.classList.remove("active");
+    }
+  });
+});
+</script>
