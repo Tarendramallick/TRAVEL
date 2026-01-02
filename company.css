@@ -100,7 +100,7 @@ body {
 @media screen and (max-width: 768px) {
   .hero {
   position: relative;      /* anchor children */
-  height: 110vh;           /* full hero section */
+  height: 80vh;           /* full hero section */
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -125,8 +125,8 @@ body {
 /* CONTENT CARD */
 .hero-content {
   position: absolute;   
-  top: 380px;
-  margin-left: 30px;/* stays inside hero */
+  top: 400px;
+  left: 0px;
   width: 100%;
   background: #fff;
   margin-top: auto;        /* push to bottom */
@@ -143,14 +143,12 @@ body {
 
 
   .jp-text {
-
-    font-size: 14pt !important;
-    width: 100%;
-    margin-left: 20px;
-  line-height: 40px;
-  color: #666;
-  font-weight: 200 !important;
-  }
+        font-size: 14pt !important;
+        width: 100%;
+        line-height: 40px;
+        color: #666;
+        font-weight: 200 !important;
+    }
 
   .hero-content h1 {
     font-size: 48px;

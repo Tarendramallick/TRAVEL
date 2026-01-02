@@ -96,7 +96,7 @@ body {
 @media screen and (max-width: 768px) {
   .hero {
   position: relative;      /* anchor children */
-  height: 110vh;           /* full hero section */
+  height: 90vh;           /* full hero section */
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -134,15 +134,17 @@ body {
 
 
   .jp-text {
-    position: absolute;
-    font-size: 20px;
-    width: 100%;
-    margin-top: 80px;
-    margin-left: 10px;
-  }
+        font-size: 14pt !important;
+        width: 100%;
+        margin-left: 20px;
+        line-height: 40px;
+        color: #666;
+        font-weight: 200 !important;
+    }
+
 
   .hero-content h1 {
-    font-size: 18px;
+    font-size: 20px;
   }
   .hero-content p {
       font-size: 34px;
