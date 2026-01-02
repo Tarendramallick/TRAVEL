@@ -100,7 +100,7 @@ body {
 @media screen and (max-width: 768px) {
   .hero {
   position: relative;      /* anchor children */
-  height: 80vh;           /* full hero section */
+  height: 100%;           /* full hero section */
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -125,35 +125,30 @@ body {
 /* CONTENT CARD */
 .hero-content {
   position: absolute;   
-  top: 400px;
+  top: 300px;
   left: 0px;
-  width: 100%;
-  background: #fff;
-  margin-top: auto;        /* push to bottom */
-  padding: 80px 40px;
-  bottom: -100%;
+  width: 100%;      /* push to bottom */
+  padding: 20px 20px;
   z-index: 2;
   border-radius: 0 40px 0 0;
 }
-.hero-content p {
-    font-size: 40pt;
-    /* font-weight: 700; */
-    
-}
-
-
-  .jp-text {
-        font-size: 14pt !important;
-        width: 100%;
-        line-height: 40px;
-        color: #666;
-        font-weight: 200 !important;
-    }
+.jp-text {
+      font-size: 14pt !important;
+      width: 100%;
+      color: #666;
+      font-weight: 200 !important;
+  }
 
   .hero-content h1 {
-    font-size: 48px;
-    margin-left: 10px;
+    font-size: 20px;
   }
+  .hero-content p {
+      font-size: 34px;
+      margin-top: 2px;
+      font-weight: 700;
+      
+  }
+
 
   .hero-nav {
     display: none;
@@ -170,26 +165,6 @@ body {
 .mobile-menu {
   display: none;
 } 
-
-/* SHOW ONLY ON MOBILE */
-
-/* Mobile */
-@media screen and (max-width: 480px) {
-  .hero-content {
-    padding: 0px 20px;
-  }
-
-  .jp-text {
-    font-size: 16px;
-    margin-top: 10px;
-  }
-
-  .hero-content h1 {
-    font-size: 20px;
-  }
-
-}
-
 
 /* philosophy section */
 .philosophy {
