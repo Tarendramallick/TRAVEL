@@ -15,7 +15,57 @@
 
   </head>
   <body>
-    <header class="hero">
+    <!-- NAVBAR -->
+     <section>
+        <div class="brand">
+            <!-- TRAVEL<br />
+            STANDARD<br />
+            JAPAN -->
+            <img
+            src="images/logo.png"
+            alt="Travel"
+            />
+            </div>
+            <div class="mobile-header">
+                
+            <div class="mobile-hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            </div>
+
+            <!-- MOBILE MENU -->
+            <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="index.html">企業情報トップ</a></li>
+                <li><a href="message.html">代表メッセージ</a></li>
+                <li><a href="companyProfile.html">会社概要</a></li>
+                <li><a href="servicePage.html">事業内容</a></li>
+                <li><a href="whychoose.html">私たちが選ばれる理由</a></li>
+                <li><a href="recentTravel.html">スタッフのおすすめ旅行先</a></li>
+                <li><a href="pressrelease.html">プレスリリース</a></li>
+            </ul>
+            </div>
+
+            <nav class="hero-nav">
+            <ul>
+            <li><a href="index.html">企業情報トップ</a></li>
+                <li><a href="message.html">代表メッセージ</a></li>
+                <li><a href="companyProfile.html">会社概要</a></li>
+                <li><a href="servicePage.html">事業内容</a></li>
+                <li><a href="whychoose.html">私たちが選ばれる理由</a></li>
+                <li><a href="recentTravel.html">スタッフのおすすめ旅行先</a></li>
+                <li><a href="pressrelease.html">プレスリリース</a></li>
+            </ul>
+
+            <button onclick="window.location.href='https://example-travel-booking.com'">
+                旅行予約サイト
+            </button>
+            </nav>
+        </section>
+    <header class="hero hero-slide">
+        <div class="hero-overlay"></div>
         <!-- MOBILE HEADER -->
       <!-- LEFT IMAGE -->
       <div class="hero-image">
@@ -23,11 +73,6 @@
           src="images/WhatsApp Image 2025-12-21 at 00.46.16.jpeg"
           alt="Travel"
         />
-        <div class="brand">
-          TRAVEL<br />
-          STANDARD<br />
-          JAPAN
-        </div>
       </div>
 
       <!-- RIGHT CONTENT -->
@@ -40,49 +85,12 @@
           JAPAN
         </h1>
 
-        <div class="scroll-vertical">
-          <span>SCROLL</span>
-          <div class="line"></div>
+        <div class="scroll-vertical" onclick="scrollDown()">
+        <span>SCROLL</span>
+        <div class="line"></div>
         </div>
+
       </div>
-
-      <!-- NAVBAR -->
-        <div class="mobile-header">
-        <div class="mobile-hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        </div>
-
-        <!-- MOBILE MENU -->
-        <div class="mobile-menu" id="mobileMenu">
-        <ul>
-            <li><a href="index.html">企業情報トップ</a></li>
-            <li><a href="message.html">代表メッセージ</a></li>
-            <li><a href="companyProfile.html">会社概要</a></li>
-            <li><a href="servicePage.html">事業内容</a></li>
-            <li><a href="whychoose.html">私たちが選ばれる理由</a></li>
-            <li><a href="recentTravel.html">スタッフのおすすめ旅行先</a></li>
-            <li><a href="pressrelease.html">プレスリリース</a></li>
-        </ul>
-        </div>
-
-        <nav class="hero-nav">
-        <ul>
-           <li><a href="index.html">企業情報トップ</a></li>
-            <li><a href="message.html">代表メッセージ</a></li>
-            <li><a href="companyProfile.html">会社概要</a></li>
-            <li><a href="servicePage.html">事業内容</a></li>
-            <li><a href="whychoose.html">私たちが選ばれる理由</a></li>
-            <li><a href="recentTravel.html">スタッフのおすすめ旅行先</a></li>
-            <li><a href="pressrelease.html">プレスリリース</a></li>
-        </ul>
-
-        <button onclick="window.location.href='https://example-travel-booking.com'">
-            旅行予約サイト
-        </button>
-        </nav>
 
     </header>
     <!-- content -->
@@ -769,7 +777,12 @@
     <!-- LEFT -->
     <div class="footer-branding">
       <p class="footer-tagline">あなたと旅のあいだに。</p>
-      <h1 class="footer-logo-text">TRAVEL<br>STANDARD<br>JAPAN</h1>
+      <div class="footer-logo">
+        <img
+          src="images/logo.png"
+          alt="Travel"
+        />
+      </div>
 
       <div class="footer-address">
         〒171-0014 東京都豊島区池袋2-14-4 池袋TAビル5階
@@ -1209,3 +1222,11 @@
     <script src="index.js"></script>
   </body>
 </html>
+<script>
+  function scrollDown() {
+    window.scrollBy({
+      top: window.innerHeight,
+      behavior: "smooth"
+    });
+  }
+</script>

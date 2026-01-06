@@ -7,6 +7,7 @@
 
 body {
    font-family: "Roboto", "Noto Sans JP", sans-serif;
+   overflow-x: hidden;
 }
 
 /* HERO */
@@ -38,9 +39,62 @@ body {
   padding: 120px 80px;
   position: relative;
 }
+/* animation */
+.hero-overlay {
+  position: absolute;        /* stays inside hero */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: #ffffff;
+  z-index: 2;
+  pointer-events: none;
+
+  overflow: hidden;
+  will-change: transform;
+
+  animation: slideRevealDesktop 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Desktop: LEFT → RIGHT */
+@keyframes slideRevealDesktop {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+/* Mobile: TOP → BOTTOM + fade out */
+@media (max-width: 768px) {
+  .hero-overlay {
+    animation: slideFadeMobile 1.9s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  }
+
+  @keyframes slideFadeMobile {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    90% {
+      transform: translateY(100%);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+  }
+}
+
+
+
 
 .jp-text {
   font-size: 30px;
+  font-weight: lighter;
   margin-bottom: 40px;
   margin-top: 200px;
 }
@@ -52,7 +106,7 @@ body {
 }
 
 /* VERTICAL SCROLL */
-.scroll-vertical {
+/* .scroll-vertical {
   position: absolute;
   bottom: 0px;
   right: 0px;
@@ -67,6 +121,73 @@ body {
   height: 100px;
   background: #000;
   margin: -30px auto 0;
+} */
+.scroll-vertical {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  cursor: pointer;
+  writing-mode: vertical-rl;
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 0.15em;
+}
+
+/* TEXT → BLINK */
+.scroll-vertical span {
+  display: inline-block;
+  animation: blinkText 1.6s ease-in-out infinite;
+}
+
+/* LINE → MOVE DOWN */
+.scroll-vertical .line {
+  width: 1px;
+  height: 100px;
+  background: #000;
+  margin: -50px auto 0;
+
+  animation: lineMoveDown 1.6s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+}
+
+/* TEXT BLINK */
+@keyframes blinkText {
+  0% {
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/* LINE UP → DOWN */
+@keyframes lineMoveDown {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  60% {
+    transform: translateY(10px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
 }
 
 /* NAVBAR */
@@ -332,10 +453,10 @@ GROWTH
 
     /* ===== SLIDER WRAPPER ===== */
     .card-wrapper {
-      margin-top: -20%;
-      margin-left: 60px;          /* ✅ KEEP THIS */
+      margin-top: -300px;
+      margin-left: 200px;          /* ✅ KEEP THIS */
       overflow: hidden;
-      
+      max-width: 1210px;
 
       /* 🔴 LIMIT VISIBLE AREA TO 3 CARDS */
        ;               /* (350 * 3) + (24 * 2) */
@@ -964,12 +1085,17 @@ SERVICE
   margin-bottom: 20px;
 }
 
-.footer-logo-text {
-  font-size: 42px;
-  line-height: 1.15;
+.footer-logo {
+  position: relative;
   margin: 0 0 40px;
+  /* font-size: 42px;
+  line-height: 1.15; */
 }
-
+.footer-logo img {
+  width: 218px;
+  height: 140px;
+  object-fit: cover;
+}
 .footer-address {
   font-size: 13px;
   line-height: 1.8;
@@ -1113,9 +1239,16 @@ SERVICE
     margin-bottom: 12px;
   }
 
-  .footer-logo-text {
-    font-size: 28px;
-    margin-bottom: 24px;
+  .footer-logo {
+    position: relative;
+    margin: 0;
+    /* font-size: 42px;
+    line-height: 1.15; */
+  }
+  .footer-logo img {
+    width: 160px;
+    height: initial;
+    object-fit: cover;
   }
 
   .footer-address {
@@ -1682,7 +1815,7 @@ overflow-x: hidden;
 .count {
   position: absolute;
   top: -60px;
-  right: 30%;
+  left: 700px;
   font-size: 120px;
   font-weight: 700;
   color: #000;
@@ -1690,15 +1823,15 @@ overflow-x: hidden;
 .count-left {
   position: absolute;
   top: -60px;
-  right: 70%;
+  left: 100px;
   font-size: 120px;
   font-weight: 700;
   color: #000;
 }
 .count-3 {
   position: absolute;
-  top: -60px;
-  right: 80%;
+  top: -50px;
+  left: 100px;
   font-size: 120px;
   font-weight: 700;
   color: #000;

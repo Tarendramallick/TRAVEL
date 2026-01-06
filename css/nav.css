@@ -14,7 +14,7 @@ body {
   display: flex;
   align-items: center;
   gap: 16px;
-  z-index: 10;
+  z-index: 9999;
 }
 
 /* NAV TEXT */
@@ -52,13 +52,13 @@ body {
   position: fixed;
   top: 20px;
   left: 20px;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  font-size: 28px;
-  line-height: 1.2;
   z-index: 999;
 }
-
+.brand img {
+  width: 125px;
+  height: 80px;
+  object-fit: cover;
+}
 /* SHOW ONLY ON MOBILE */
 @media (max-width: 768px) {
   .mobile-header {
