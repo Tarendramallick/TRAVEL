@@ -15,55 +15,57 @@
 
   </head>
   <body>
+    <div class="site-wrapper">
     <!-- NAVBAR -->
      <section>
+        <!-- BRAND (always visible) -->
         <div class="brand">
-            <!-- TRAVEL<br />
-            STANDARD<br />
-            JAPAN -->
-            <img
-            src="images/logo.png"
-            alt="Travel"
-            />
-            </div>
-            <div class="mobile-header">
-                
-            <div class="mobile-hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            </div>
+          <img src="images/logo.png" alt="Travel" />
+        </div>
 
-            <!-- MOBILE MENU -->
-            <div class="mobile-menu" id="mobileMenu">
+        <!-- DESKTOP NAV ONLY -->
+        <div class="hero-nav-holder">
+          <nav class="hero-nav">
             <ul>
-                <li><a href="index.html">企業情報トップ</a></li>
-                <li><a href="message.html">代表メッセージ</a></li>
-                <li><a href="companyProfile.html">会社概要</a></li>
-                <li><a href="servicePage.html">事業内容</a></li>
-                <li><a href="whychoose.html">私たちが選ばれる理由</a></li>
-                <li><a href="recentTravel.html">スタッフのおすすめ旅行先</a></li>
-                <li><a href="pressrelease.html">プレスリリース</a></li>
-            </ul>
-            </div>
-
-            <nav class="hero-nav">
-            <ul>
-            <li><a href="index.html">企業情報トップ</a></li>
-                <li><a href="message.html">代表メッセージ</a></li>
-                <li><a href="companyProfile.html">会社概要</a></li>
-                <li><a href="servicePage.html">事業内容</a></li>
-                <li><a href="whychoose.html">私たちが選ばれる理由</a></li>
-                <li><a href="recentTravel.html">スタッフのおすすめ旅行先</a></li>
-                <li><a href="pressrelease.html">プレスリリース</a></li>
+              <li><a href="index.html">企業情報トップ</a></li>
+              <li><a href="message.html">代表メッセージ</a></li>
+              <li><a href="companyProfile.html">会社概要</a></li>
+              <li><a href="servicePage.html">事業内容</a></li>
+              <li><a href="whychoose.html">私たちが選ばれる理由</a></li>
+              <li><a href="recentTravel.html">スタッフのおすすめ旅行先</a></li>
+              <li><a href="pressrelease.html">プレスリリース</a></li>
             </ul>
 
             <button onclick="window.location.href='https://example-travel-booking.com'">
-                旅行予約サイト
+              旅行予約サイト
             </button>
-            </nav>
-        </section>
+          </nav>
+        </div>
+
+        <!-- MOBILE HEADER -->
+        <div class="mobile-header">
+          <div class="mobile-hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
+        <!-- MOBILE MENU -->
+        <div class="mobile-menu" id="mobileMenu">
+          <ul>
+            <li><a href="index.html">企業情報トップ</a></li>
+            <li><a href="message.html">代表メッセージ</a></li>
+            <li><a href="companyProfile.html">会社概要</a></li>
+            <li><a href="servicePage.html">事業内容</a></li>
+            <li><a href="whychoose.html">私たちが選ばれる理由</a></li>
+            <li><a href="recentTravel.html">スタッフのおすすめ旅行先</a></li>
+            <li><a href="pressrelease.html">プレスリリース</a></li>
+          </ul>
+        </div>
+
+      </section>
+
     <header class="hero hero-slide">
         <div class="hero-overlay"></div>
         <!-- MOBILE HEADER -->
@@ -78,7 +80,7 @@
       <!-- RIGHT CONTENT -->
       <div class="hero-content">
         <p class="jp-text">あなたと旅のあいだに。</p>
-
+        <!-- <img src="images/logo.png" alt="Travel"/> -->
         <h1>
           TRAVEL<br />
           STANDARD<br />
@@ -297,7 +299,7 @@
                         </p>
                 </div>
 
-                <div class="image">
+                <div class="image1">
                         <img src="images/WhatsApp Image 2025-12-21 at 00.46.16.jpeg" alt="team" />
                 </div>
                 </div>
@@ -351,7 +353,7 @@
                         </p>
                     </div>
 
-                    <div class="image">
+                    <div class="image2">
                         <img src="images/WhatsApp Image 2025-12-21 at 00.46.16.jpeg" alt="team" />
                     </div>
                 </div>
@@ -868,356 +870,18 @@
 
 </footer>
 
-<div class="footer-legal">
-  <div>トラベル・スタンダード・ジャパン株式会社 © Travel Standard Japan Co.,Ltd.</div>
-  <div>
-    <a href="#">個人情報保護方針</a>
-    <a href="#">旅行業約款・条件書</a>
-  </div>
-</div>
-             </section>
+            <div class="footer-legal">
+            <div>トラベル・スタンダード・ジャパン株式会社 © Travel Standard Japan Co.,Ltd.</div>
+            <div>
+                <a href="#">個人情報保護方針</a>
+                <a href="#">旅行業約款・条件書</a>
+            </div>
+            </div>
+     </section>
         
-      <!-- Destinations Section -->
-      <!-- <section class="destinations-section">
-            <div class="container">
-                <div class="destinations-header">
-                    <p class="section-label">旅をもっと特別な体験に。</p>
-                    <h2 class="section-heading">私たちの<br>最近の旅行先</h2>
-                    <p class="section-desc">スタッフが実際に訪れた場所をご紹介します。現地の魅力や穴場スポット、おすすめのグルメなど、リアルな旅の情報をお届けします。あなたの次の旅行先選びの参考にしてください。</p>
-                    <button class="btn-outline">もっと見る</button>
-                </div>
-            </div>
-            <div class="destinations-gallery">
-                <div class="gallery-item">
-                    <img src="images/1.jpg" alt="ピサの斜塔">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/1.jpg" alt="美しい海">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/1.jpg" alt="ビーチのハンモック">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/1.jpg" alt="キャニオン">
-                </div>
-            </div>
-        </section> -->
-
-      <!-- Reasons Section -->
-      <!-- <section class="reasons-section">
-            <div class="container">
-                <h2 class="main-heading">私たちが<br>選ばれる理由</h2>
-
-               
-                <div class="reason-item">
-                    <div class="reason-number">01</div>
-                    <div class="reason-layout">
-                        <div class="reason-text">
-                            <h3 class="reason-title">個人旅行の相談から<br>手配まで承ります</h3>
-                            <p class="reason-desc">お客様のご要望をじっくりとお伺いし、最適な旅行プランをご提案いたします。航空券、ホテル、現地ツアーの手配はもちろん、ビザ申請のサポートまで、旅行に関するあらゆることをトータルでサポートいたします。経験豊富なスタッフが、あなただけの特別な旅をプロデュースします。</p>
-                        </div>
-                        <div class="reason-image">
-                            <img src="/placeholder.svg?height=600&width=800" alt="旅行相談">
-                        </div>
-                    </div>
-                    <div class="reason-cards">
-                        <div class="reason-card">
-                            <h4>経験豊富なスタッフによる<br>きめ細やかなサポート</h4>
-                            <p>旅行業界での長年の経験を持つスタッフが、お客様一人ひとりに寄り添い、最適なプランをご提案します。</p>
-                        </div>
-                        <div class="reason-card">
-                            <h4>オーダーメイドで<br>あなただけの旅を実現</h4>
-                            <p>パッケージツアーにはない、完全オーダーメイドの旅行プランをご提案。あなたの希望を形にします。</p>
-                        </div>
-                        <div class="reason-card">
-                            <h4>航空券・ホテル・ツアーを<br>一括手配</h4>
-                            <p>面倒な手配は全てお任せください。航空券からホテル、現地ツアーまで、トータルでサポートします。</p>
-                        </div>
-                        <div class="reason-card">
-                            <h4>ビザ申請サポートも<br>お任せください</h4>
-                            <p>複雑なビザ申請も安心。必要書類のご案内から申請サポートまで、丁寧にお手伝いします。</p>
-                        </div>
-                    </div>
-                </div>
-
-               
-                <div class="reason-item">
-                    <div class="reason-number">02</div>
-                    <div class="reason-layout reason-layout-reverse">
-                        <div class="reason-text">
-                            <h3 class="reason-title">安心・安全の確かなサポート</h3>
-                            <p class="reason-desc">旅行中の安全は何よりも大切です。24時間365日対応の緊急サポートデスクを完備し、現地でのトラブルにも迅速に対応いたします。海外旅行保険の手配から、現地の医療機関のご紹介まで、万全のサポート体制でお客様の安全な旅をお守りします。</p>
-                        </div>
-                        <div class="reason-image">
-                            <img src="/placeholder.svg?height=600&width=800" alt="安全サポート">
-                        </div>
-                    </div>
-                    <div class="reason-cards">
-                        <div class="reason-card">
-                            <h4>24時間365日対応の<br>緊急サポートデスク</h4>
-                            <p>いつでも、どこでも。旅行中のトラブルに24時間体制で対応するサポートデスクを完備しています。</p>
-                        </div>
-                        <div class="reason-card">
-                            <h4>海外旅行保険の<br>手配もお任せ</h4>
-                            <p>お客様に最適な海外旅行保険をご提案。万が一の時も安心の補償内容です。</p>
-                        </div>
-                        <div class="reason-card">
-                            <h4>現地の医療機関との<br>連携体制</h4>
-                            <p>現地の医療機関と連携し、緊急時にも迅速に対応できる体制を整えています。</p>
-                        </div>
-                        <div class="reason-card">
-                            <h4>最新の安全情報を<br>随時お知らせ</h4>
-                            <p>渡航先の最新の安全情報を常に把握し、お客様に適切な情報をご提供します。</p>
-                        </div>
-                    </div>
-                </div>
-
-             
-                <div class="reason-item">
-                    <div class="reason-number">03</div>
-                    <div class="reason-layout">
-                        <div class="reason-text">
-                            <h3 class="reason-title">高い満足度と信頼</h3>
-                            <p class="reason-desc">お客様からいただく「ありがとう」の言葉が、私たちの何よりの喜びです。お客様満足度95%以上、リピート率80%以上という高い評価をいただいています。一人ひとりのお客様と真摯に向き合い、期待を超えるサービスを提供し続けることで、多くの信頼をいただいています。</p>
-                        </div>
-                        <div class="reason-image">
-                            <img src="/placeholder.svg?height=600&width=800" alt="高い満足度">
-                        </div>
-                    </div>
-                    <div class="reason-cards">
-                        <div class="reason-card">
-                            <h4>お客様満足度95%以上の<br>高評価</h4>
-                            <p>多くのお客様から高い評価をいただいており、満足度95%以上を維持しています。</p>
-                        </div>
-                        <div class="reason-card">
-                            <h4>リピート率80%以上の<br>信頼の実績</h4>
-                            <p>一度ご利用いただいたお客様の80%以上がリピートしてくださる、信頼の実績があります。</p>
-                        </div>
-                        <div class="reason-card">
-                            <h4>お客様の声を大切に<br>サービス向上</h4>
-                            <p>お客様からいただいた声を真摯に受け止め、常にサービスの向上に努めています。</p>
-                        </div>
-                        <div class="reason-card">
-                            <h4>長年の実績と<br>豊富な経験</h4>
-                            <p>創業以来培ってきた実績と経験で、お客様に最高の旅行体験をご提供します。</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="btn-center">
-                    <button class="btn-outline">私たちについて</button>
-                </div>
-            </div>
-        </section> -->
-
-      <!-- Timeline Section -->
-      <!-- <section class="timeline-section">
-            <div class="container">
-                <h2 class="main-heading">私たちの実績</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date">2024.01.15</div>
-                        <div class="timeline-content">お客様満足度調査で3年連続最高評価を獲得しました</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">2023.12.01</div>
-                        <div class="timeline-content">新オフィスを東京・大阪・名古屋に開設しました</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">2023.10.20</div>
-                        <div class="timeline-content">海外提携ホテル数が1000件を突破しました</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">2023.08.10</div>
-                        <div class="timeline-content">24時間サポートデスクの運用を開始しました</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">2023.06.01</div>
-                        <div class="timeline-content">オンライン予約システムをリニューアルしました</div>
-                    </div>
-                </div>
-                <div class="btn-center">
-                    <button class="btn-outline">すべて見る</button>
-                </div>
-            </div>
-        </section> -->
-
-      <!-- Recruit Section -->
-      <!-- <section class="recruit-section">
-            <div class="container">
-                <h2 class="main-heading">旅行好きが<br>厳選できる場所</h2>
-                <div class="recruit-grid">
-                    <div class="recruit-card">
-                        <div class="recruit-image">
-                            <img src="/placeholder.svg?height=400&width=600" alt="正社員採用">
-                        </div>
-                        <div class="recruit-content">
-                            <h3>正スタッフ採用情報×インターンシップ</h3>
-                            <p>旅行が好きな方、人と接することが好きな方、私たちと一緒に働きませんか。経験豊富なスタッフがしっかりサポートします。</p>
-                            <ul class="recruit-list">
-                                <li>充実した研修制度</li>
-                                <li>社員旅行制度</li>
-                                <li>資格取得支援制度</li>
-                                <li>キャリアアップ制度</li>
-                                <li>フレックスタイム制度</li>
-                                <li>リモートワーク可能</li>
-                            </ul>
-                            <button class="btn-outline">採用情報を見る</button>
-                        </div>
-                    </div>
-                    <div class="recruit-card">
-                        <div class="recruit-image">
-                            <img src="/placeholder.svg?height=400&width=600" alt="派遣スタッフ">
-                        </div>
-                        <div class="recruit-content">
-                            <h3>派遣スタッフ×正社員を目指せる</h3>
-                            <p>派遣スタッフとしてスタートし、実力次第で正社員登用も可能です。ライフスタイルに合わせた働き方ができます。</p>
-                            <ul class="recruit-list">
-                                <li>未経験者歓迎</li>
-                                <li>正社員登用制度</li>
-                                <li>週3日～勤務可能</li>
-                                <li>時短勤務可能</li>
-                                <li>交通費全額支給</li>
-                                <li>社会保険完備</li>
-                            </ul>
-                            <button class="btn-outline">詳細を見る</button>
-                        </div>
-                    </div>
-                    <div class="recruit-card">
-                        <div class="recruit-image">
-                            <img src="/placeholder.svg?height=400&width=600" alt="アルバイト">
-                        </div>
-                        <div class="recruit-content">
-                            <h3>アルバイト採用情報×学生OK</h3>
-                            <p>学生の方も大歓迎。旅行業界で働きながら、実践的なスキルを身につけることができます。</p>
-                            <ul class="recruit-list">
-                                <li>学生歓迎</li>
-                                <li>シフト制で柔軟</li>
-                                <li>時給1,200円～</li>
-                                <li>週2日～OK</li>
-                                <li>語学力を活かせる</li>
-                                <li>旅行割引制度</li>
-                            </ul>
-                            <button class="btn-outline">応募する</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-
-      <!-- Company Info Section -->
-      <!-- <section class="company-section">
-            <div class="container">
-                <h2 class="main-heading">基本情報</h2>
-                <div class="company-grid">
-                    <div class="company-card">
-                        <h3>一般的な旅行会社情報</h3>
-                    </div>
-                    <div class="company-card">
-                        <h3>研修情報</h3>
-                    </div>
-                    <div class="company-card">
-                        <h3>企業理念×沿革説明</h3>
-                    </div>
-                    <div class="company-card">
-                        <h3>個人情報の取り扱い</h3>
-                    </div>
-                </div>
-                <div class="btn-center">
-                    <button class="btn-outline">もっと見る</button>
-                </div>
-            </div>
-        </section> -->
-
-      <!-- Press Release Section -->
-      <!-- <section class="press-section">
-            <div class="container">
-                <h2 class="main-heading">プレスリリース</h2>
-                <div class="press-list">
-                    <div class="press-item">
-                        <div class="press-date">2024.01.20</div>
-                        <div class="press-title">「春の特別キャンペーン」を開始しました｜早期予約で最大30%OFF・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・</div>
-                    </div>
-                    <div class="press-item">
-                        <div class="press-date">2024.01.15</div>
-                        <div class="press-title">年末年始の営業時間のお知らせ</div>
-                    </div>
-                    <div class="press-item">
-                        <div class="press-date">2024.01.10</div>
-                        <div class="press-title">新しい海外ツアープランを50種類追加しました・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・</div>
-                    </div>
-                </div>
-                <div class="btn-center">
-                    <button class="btn-outline">すべて見る</button>
-                </div>
-            </div>
-        </section> -->
-
-      <!-- CTA Section -->
-      <!-- <section class="cta-section">
-            <div class="container">
-                <p class="cta-subtitle">あなたと旅をかなえるために。</p>
-                <h2 class="cta-title">TRAVEL<br>STANDARD<br>JAPAN</h2>
-                <p class="cta-desc">私たちは、お客様の夢を実現するために、<br>最適な旅行プランをご提案いたします。<br>旅行のことなら、ぜひ私たちにお任せください。</p>
-                <div class="cta-buttons">
-                    <button class="btn-white">お問い合わせ</button>
-                    <button class="btn-white-outline">資料請求</button>
-                </div>
-            </div>
-        </section> -->
+      
     </main>
-
-    <!-- Footer -->
-    <!-- <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h3 class="footer-brand">TRAVEL STANDARD JAPAN</h3>
-                    <p class="footer-info">
-                        〒150-0001<br>
-                        東京都渋谷区神宮前1-1-1<br>
-                        TEL: 03-1234-5678<br>
-                        営業時間: 10:00-19:00（平日）
-                    </p>
-                    <div class="footer-social">
-                        <a href="#" aria-label="Facebook">f</a>
-                        <a href="#" aria-label="Twitter">t</a>
-                        <a href="#" aria-label="Instagram">i</a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h4>サービス</h4>
-                    <ul>
-                        <li><a href="#">海外旅行</a></li>
-                        <li><a href="#">国内旅行</a></li>
-                        <li><a href="#">オーダーメイド旅行</a></li>
-                        <li><a href="#">企業向けサービス</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>会社情報</h4>
-                    <ul>
-                        <li><a href="#">企業情報トップ</a></li>
-                        <li><a href="#">代表メッセージ</a></li>
-                        <li><a href="#">会社概要</a></li>
-                        <li><a href="#">採用情報</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>サポート</h4>
-                    <ul>
-                        <li><a href="#">よくある質問</a></li>
-                        <li><a href="#">旅行約款</a></li>
-                        <li><a href="#">プライバシーポリシー</a></li>
-                        <li><a href="#">お問い合わせ</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 TRAVEL STANDARD JAPAN. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer> -->
+    </div>
 
     <script src="index.js"></script>
   </body>
@@ -1229,4 +893,35 @@
       behavior: "smooth"
     });
   }
+</script>
+<script>
+  const overlay = document.querySelector('.hero-overlay');
+
+  overlay.addEventListener('animationend', () => {
+    overlay.remove();
+  });
+</script>
+<script>
+window.addEventListener("load", function() {
+  const hamburger = document.getElementById("hamburger");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  if (!hamburger || !mobileMenu) {
+    console.warn("Hamburger or mobile menu not found");
+    return;
+  }
+
+  hamburger.addEventListener("click", function(e) {
+    e.stopPropagation();
+    mobileMenu.classList.toggle("active");
+    hamburger.classList.toggle("active");
+  });
+
+  document.addEventListener("click", function(e) {
+    if (!e.target.closest("#hamburger") && !e.target.closest("#mobileMenu")) {
+      mobileMenu.classList.remove("active");
+      hamburger.classList.remove("active");
+    }
+  });
+});
 </script>

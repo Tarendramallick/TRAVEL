@@ -116,7 +116,7 @@ slider.addEventListener("mouseleave", () => {
 
   const visibleCardCount = 3;
   const cardGap = 24;
-  const singleCardWidth = 444 + cardGap;
+  const singleCardWidth = 400 + cardGap;
 
   let currentIndex = visibleCardCount;
 
@@ -232,6 +232,9 @@ function scrollToTop() {
   });
 }
 
+const hamburger = document.getElementById("hamburger");
+const mobileMenu = document.getElementById("mobileMenu");
 
-
-
+hamburger.addEventListener("click", () => {
+  mobileMenu.classList.toggle("active");
+});

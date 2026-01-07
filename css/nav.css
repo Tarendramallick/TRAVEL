@@ -1,21 +1,79 @@
 body {
    font-family: "Roboto", "Noto Sans JP", sans-serif;
 }
-.hero-nav {
-  width: 960px;              /* ⬅ exact */
-  height: 60px;
+/* HOLDER locks nav to 1210px layout */
+.hero-nav-holder {
   position: fixed;
   top: 24px;
-  right: 32px;
+  left: 50%;
+  width: 1210px;
+  transform: translateX(-50%);
+  z-index: 9999;
+  pointer-events: none; /* allows clicks only on nav */
+}
+
+/* ACTUAL NAV */
+.hero-nav {
+  width: 960px;
+  height: 60px;
+  margin-left: auto;   /* push to right inside 1210 */
   background: rgba(243, 243, 243, 0.6);
   backdrop-filter: blur(8px);
   border-radius: 999px;
-  padding: 16px;          /* ⬅ slightly thicker */
+  padding: 16px;
   display: flex;
   align-items: center;
   gap: 16px;
-  z-index: 9999;
+  pointer-events: auto;
 }
+/* Desktop */
+@media (min-width: 769px) {
+  .mobile-header,
+  .mobile-menu {
+    display: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero-nav-holder {
+    display: none;
+  }
+
+  .mobile-header {
+    display: flex;
+  }
+}
+
+/* BRAND aligned to 1210px layout */
+.brand {
+  position: fixed;
+  top: 20px;
+
+  /* Desktop 1210 lock */
+  left: 51%;
+  transform: translateX(-605px);
+
+  z-index: 1100;
+}
+
+.brand img {
+  width: 125px;
+  height: auto;
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+  .brand {
+    left: 20px;          /* reset */
+    transform: none;    /* 🔥 REQUIRED */
+    top: 20px;
+
+    z-index: 9999;
+  }
+}
+
+
 
 /* NAV TEXT */
 .hero-nav ul {
@@ -48,17 +106,7 @@ body {
 .mobile-header {
   display: none;
 }
-.brand {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 999;
-}
-.brand img {
-  width: 125px;
-  height: 80px;
-  object-fit: cover;
-}
+
 /* SHOW ONLY ON MOBILE */
 @media (max-width: 768px) {
   .mobile-header {
@@ -136,15 +184,5 @@ body {
   .scroll-vertical {
     display: none;
   }
-  .brand {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  font-size: 20px;
-  line-height: 1.2;
-  z-index: 999;
-}
-
+  
 }

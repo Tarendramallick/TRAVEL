@@ -9,12 +9,47 @@ body {
    font-family: "Roboto", "Noto Sans JP", sans-serif;
    overflow-x: hidden;
 }
+/* ===== DESKTOP FIXED WIDTH ===== */
+.site-wrapper {
+  width: 1210px;        /* FIXED width */
+  margin: 0 auto;      /* center */
+  background: #ffffff;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* PREVENT DESKTOP SHRINKING */
+@media (min-width: 769px) {
+  body {
+    min-width: 1210px;
+  }
+}
+
+/* ===== MOBILE / TABLET ===== */
+@media (max-width: 768px) {
+  body {
+    min-width: 0;
+  }
+
+  .site-wrapper {
+    width: 100%;       /* responsive on mobile */
+    padding: 0 0px;
+  }
+}
+
+/* OUTSIDE BACKGROUND */
+body {
+  background: #f2f2f2;
+}
+
+
 
 /* HERO */
 .hero {
   display: flex;
-  height: 80vh;
+  height: 680px;
   position: relative;
+  overflow: hidden;
 }
 
 /* LEFT IMAGE */
@@ -36,28 +71,27 @@ body {
 .hero-content {
   width: 40%;
   background: #fff;
-  padding: 120px 80px;
+  padding: 160px 40px;
   position: relative;
+}
+.hero-content img {
+  width: 368px;
+  height: 236px;
+  object-fit: cover;
 }
 /* animation */
 .hero-overlay {
-  position: absolute;        /* stays inside hero */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
+  position: absolute;
+  inset: 0;
   background: #ffffff;
   z-index: 2;
   pointer-events: none;
-
   overflow: hidden;
   will-change: transform;
 
   animation: slideRevealDesktop 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
-/* Desktop: LEFT → RIGHT */
 @keyframes slideRevealDesktop {
   from {
     transform: translateX(0);
@@ -66,6 +100,7 @@ body {
     transform: translateX(100%);
   }
 }
+
 
 /* Mobile: TOP → BOTTOM + fade out */
 @media (max-width: 768px) {
@@ -100,7 +135,7 @@ body {
 }
 
 .hero-content h1 {
-  font-size: 72px;
+  font-size: 60px;
   font-weight: 800;
   line-height: 1.1;
 }
@@ -257,7 +292,7 @@ body {
 /* Intro Section */
 .message-section {
   width: 100%;
-  padding: 100px 0;
+  padding: 100px 40px;
   background: #ffffff;
 }
 
@@ -407,13 +442,13 @@ GROWTH
 =================== */
    /* ===== TOP SECTION ===== */
    .growth-box {
-  width: 1160px;
+  width: 1100px;
   height: 596px;
   background: #008a7c;
   border-radius: 0px 28px 28px 0px;
   padding: 60px;
   position: relative;
-  z-index: -1
+  
 }
 
 /* Layout */
@@ -435,6 +470,7 @@ GROWTH
 
 .growth-left h2 {
   font-size: 42px;
+  font-weight: 100;
   margin-top: 10px;
   line-height: 1.3;
 }
@@ -454,7 +490,7 @@ GROWTH
     /* ===== SLIDER WRAPPER ===== */
     .card-wrapper {
       margin-top: -300px;
-      margin-left: 200px;          /* ✅ KEEP THIS */
+      margin-left: 100px;          /* ✅ KEEP THIS */
       overflow: hidden;
       max-width: 1210px;
 
@@ -469,8 +505,8 @@ GROWTH
     }
 
     .growth-card {
-      min-width: 444px;
-      min-height: 664px;
+      min-width: 400px;
+      min-height: 600px;
       background: #e0e0e0;
       border-radius: 20px;
       overflow: hidden;
@@ -1770,7 +1806,7 @@ overflow-x: hidden;
 /* Layout */
 .why-container {
   display: flex;
-  gap: 60px;
+  gap: 30px;
   align-items: flex-start;
 }
 
@@ -1783,6 +1819,7 @@ overflow-x: hidden;
 
 .left-title h2 {
   font-size: 36px;
+  width: 220px;
   line-height: 1.4;
 }
 
@@ -1794,7 +1831,7 @@ overflow-x: hidden;
   padding: 60px;
   display: flex;
   gap: 40px;
-  width: 80%;
+  width: 1100px;
   height: 550px;
   margin-left:auto;
 }
@@ -1805,8 +1842,8 @@ overflow-x: hidden;
   padding: 60px;
   display: flex;
   gap: 40px;
-  width: 80%;
-  height: 550px;
+  width: 1100px;
+  height: 480px;
   margin-top: 100px;
   margin-left: -80px;
 }
@@ -1815,7 +1852,7 @@ overflow-x: hidden;
 .count {
   position: absolute;
   top: -60px;
-  left: 700px;
+  left: 500px;
   font-size: 120px;
   font-weight: 700;
   color: #000;
@@ -1823,7 +1860,7 @@ overflow-x: hidden;
 .count-left {
   position: absolute;
   top: -60px;
-  left: 100px;
+  left: 150px;
   font-size: 120px;
   font-weight: 700;
   color: #000;
@@ -1840,7 +1877,6 @@ overflow-x: hidden;
 /* Content */
 .content h3 {
   font-size: 36px;
-  margin-top: 40px;
   margin-bottom: 20px;
 }
 
@@ -1848,24 +1884,40 @@ overflow-x: hidden;
   font-size: 18px;
   line-height: 1.6;
   color: #333;
-  max-width: 440px;
+  max-width: 600px;
 }
 
 /* Image */
 .image img {
-  width: 500px;
-  height: 320px;
+  position: relative;
+  width: 417px;
+  height: 288px;
   object-fit: cover;
   border-radius: 30px;
 }
-
+.image1 img {
+  position: relative;
+  right: -100px;
+  top: -30px;
+  width: 417px;
+  height: 288px;
+  object-fit: cover;
+  border-radius: 30px;
+}
+.image2 img {
+  position: relative;
+  width: 417px;
+  height: 288px;
+  object-fit: cover;
+  border-radius: 30px;
+}
 /* Bottom cards */
 .bottom-cards {
   display: flex;
   gap: 30px;
   position:relative;
   top:-100px;
-  left:15%;
+  left:-1%;
 }
 .bottom-cards-left {
   display: flex;
@@ -1953,6 +2005,19 @@ overflow-x: hidden;
   }
 
   .image img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+  .image1 img {
+    width: 100%;
+    right: 0;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+   .image2 img {
     width: 100%;
     height: 240px;
     object-fit: cover;
@@ -2872,21 +2937,19 @@ overflow-x: hidden;
   }
 }
 .edge-line {
-  position: relative;
-  left: 50%;
-  margin-left: -50vw;
-  width: 100vw;
+  width: 100%;
   height: 2px;
   background: #d9d9d9;
+  margin: 40px 0;
+  position: relative;
 }
 
-/* Small darker dash */
 .edge-line .edge-dash {
   position: absolute;
-  left: 120px;   /* adjust to match screenshot */
+  left: 120px;
   top: -1px;
-
-  width: 60px;   /* dash length */
-  height: 3px;   /* dash thickness */
+  width: 60px;
+  height: 3px;
   background: #666;
 }
+
