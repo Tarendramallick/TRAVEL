@@ -18,7 +18,7 @@ body {
   position: relative;
 }
 .footer-bg {
-  background: #000000;
+background: #f4f4f2;
 }
 /* PREVENT DESKTOP SHRINKING */
 @media (min-width: 769px) {
@@ -41,7 +41,7 @@ body {
 
 /* OUTSIDE BACKGROUND */
 body {
-  background: #ffffff;
+  background: #f4f4f2;
 }
 
 
