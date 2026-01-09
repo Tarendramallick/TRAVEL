@@ -41,6 +41,11 @@ body {
 body {
   background: #ffffff;
 }
+.footer-bg {
+  body {
+  background: #999;
+}
+}
 
 
 
