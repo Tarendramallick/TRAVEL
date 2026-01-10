@@ -116,3 +116,10 @@ background: #000000;
   cursor: pointer;
   gap: 8px;
 }
+.footer-menu a {
+  color: inherit;          /* same color as text */
+  text-decoration: none;   /* remove underline */
+}
+.footer-menu a:hover {
+  text-decoration: underline;   /* or remove if you want */
+}
