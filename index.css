@@ -780,12 +780,21 @@ SERVICE
       font-size: 18px;
       font-weight: 500;
       backdrop-filter: blur(2px);
+      cursor: pointer;
+      transition: all 0.35s ease;
     }
+
+    .service-box:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 1);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    }
+
 
     /* BUTTON */
     .service-btn {
-      margin: 40px auto 0;
-      margin-bottom: 80px;
+      margin: 40px auto 80px;
       display: flex;
       align-items: center;
       gap: 12px;
@@ -796,7 +805,16 @@ SERVICE
       color: #000;
       font-size: 14px;
       cursor: pointer;
+      transition: all 0.35s ease;
     }
+
+    .service-btn:hover {
+      background: #000;
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    }
+
 
     .arrow {
       font-size: 16px;
@@ -920,7 +938,17 @@ SERVICE
       background: #fff;
       cursor: pointer;
       font-size: 14px;
+      transition: all 0.35s ease;
     }
+
+    .pr-viewall-btn:hover {
+      background: #000;
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    }
+
+
 
     /* RIGHT LIST */
     /* .pr-list {
@@ -1004,16 +1032,26 @@ SERVICE
     }
 
     /* ARROW */
-    .pr-arrow {
-      width: 40px;
-      height: 40px;
-      background: #000;
-      color: #fff;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+.pr-arrow {
+  width: 40px;
+  height: 40px;
+  background: #000;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* ONLY ARROW HOVER */
+.pr-arrow:hover {
+  background: #fff;
+  color: #000;
+  transform: translateX(6px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
 
 
     /* RESPONSIVE */
@@ -1127,6 +1165,7 @@ SERVICE
   font-size: 13px;
   display: flex;
   align-items: center;
+  cursor: pointer;
   gap: 8px;
 }
 
@@ -1986,7 +2025,7 @@ overflow-x: visible;
   flex-direction: column;
   
 
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.6;
   font-weight: 500;
 }
