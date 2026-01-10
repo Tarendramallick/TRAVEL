@@ -2,9 +2,10 @@
     PRESS RELEASE
     ============= */
     .hero {
-    display: flex;
-    height: 40vh;
-    position: relative;
+      display: flex;
+      height: 280px;
+      position: relative;
+      overflow: hidden;
     }
     .hero-content {
     background: #fff;

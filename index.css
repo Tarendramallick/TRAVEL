@@ -14,11 +14,14 @@ body {
   width: 1210px;        /* FIXED width */
   margin: 0 auto;      /* center */
   background: #ffffff;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   position: relative;
 }
 .footer-bg {
 background: #f4f4f2;
+}
+.footer-legal-bg {
+background: #000000;
 }
 /* PREVENT DESKTOP SHRINKING */
 @media (min-width: 769px) {
@@ -450,7 +453,18 @@ GROWTH
   border-radius: 0px 28px 28px 0px;
   padding: 60px;
   position: relative;
+  overflow: visible; /* allow bleed */
   
+}
+.growth-box::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 100%;
+  width: 100vw;
+  height: 100%;
+  background: #008a7c;
+  z-index: -1;
 }
 
 /* Layout */
@@ -859,11 +873,18 @@ SERVICE
 
 
    .pr-section {
-      max-width: 100%;
-      margin: auto;
+      position: relative;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
       border-top: 1px solid #999;
       border-bottom: 1px solid #999;
+    } 
+    .pr-section .inner {
+      width: 1210px;
+      margin: 0 auto;
     }
+
+
 
     .pr-layout {
       display: grid;
@@ -1013,7 +1034,11 @@ SERVICE
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
   }
-
+  .pr-section .inner {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
   /* LAYOUT STACK */
   .pr-layout {
     grid-template-columns: 1fr;
@@ -1789,19 +1814,19 @@ SERVICE
 .section-one{
   background: #ffffff;
   padding: 200px 0px 0px 60px;
-  overflow-x: hidden;
+  overflow-x: visible;
  
 }
 .section-two{
   background: #ffffff;
  padding: 0px 0px 0px 60px;
-overflow-x: hidden;
+overflow-x: visible;
  
 }
 .section-three{
   background: #ffffff;
  padding: 30px 0px 0px 60px;
-overflow-x: hidden;
+overflow-x: visible;
  
 }
 
@@ -1837,6 +1862,16 @@ overflow-x: hidden;
   height: 550px;
   margin-left:auto;
 }
+.main-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: calc(-1 * ((100vw - 1210px) / 2));
+  width: calc((100vw - 1210px) / 2);
+  height: 100%;
+  background: #f5f5f5;
+  z-index: -1;
+}
 .main-card-left {
   position: relative;
   background: #f5f5f5;
@@ -1848,6 +1883,16 @@ overflow-x: hidden;
   height: 480px;
   margin-top: 100px;
   margin-left: -80px;
+}
+.main-card-left::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: calc(-1 * ((100vw - 1210px) / 2));
+  width: calc((100vw - 1210px) / 2);
+  height: 100%;
+  background: #f5f5f5;
+  z-index: -1;
 }
 
 /* Big number */
@@ -2657,7 +2702,7 @@ overflow-x: hidden;
 .footer {
   /* background: #1a1a1a; */
   color: #000000;
-  padding: 80px 0 0;
+  margin-top: 80px;
 }
 
 .footer-grid {
@@ -2938,7 +2983,7 @@ overflow-x: hidden;
     gap: 32px;
   }
 }
-.edge-line {
+/* .edge-line {
   width: 100%;
   height: 2px;
   background: #d9d9d9;
@@ -2953,5 +2998,28 @@ overflow-x: hidden;
   width: 60px;
   height: 3px;
   background: #666;
+} */
+ .edge-line {
+  position: relative;
+  width: 100vw;
+  height: 2px;
+  background: #d9d9d9;
+  margin: 40px 0;
+
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
+
+
+.edge-line .edge-dash {
+  position: absolute;
+  left: calc((100vw - 1210px) / 2 + 120px);
+  top: -1px;
+  width: 60px;
+  height: 3px;
+  background: #666;
+}
+
 

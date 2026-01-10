@@ -12,10 +12,12 @@ body {
 /* HERO */
 .hero {
   display: flex;
-  justify-content: flex-end;
-  height: 80vh;
+  height: 680px;
+  justify-content: end;
   position: relative;
+  overflow: hidden;
 }
+
 
 /* LEFT IMAGE */
 .hero-image {
@@ -116,7 +118,7 @@ body {
   display: block;
   position: absolute;
   bottom: 10%;
-  left: 35%;
+  left: 470px;
   width: 42%;
   color: white;
   font-size: 14px;

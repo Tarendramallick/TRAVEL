@@ -8,7 +8,6 @@
     grid-template-columns: 240px 1fr;
     gap: 40px;
     padding-top: 20px;
-    padding: 80px;
 }
 
 /* Sidebar */
@@ -167,7 +166,7 @@
 
 
 /* Full width light line */
-.edge-line {
+/* .edge-line {
   position: relative;
   left: 50%;
   margin-left: -50vw;
@@ -175,18 +174,18 @@
   width: 100vw;
   height: 2px;
   background: #d9d9d9;
-}
+} */
 
 /* Small darker dash */
-.edge-line .edge-dash {
+/* .edge-line .edge-dash {
   position: absolute;
-  left: 120px;   /* adjust to match screenshot */
+  left: 120px;   
   top: -1px;
 
-  width: 60px;   /* dash length */
-  height: 3px;   /* dash thickness */
+  width: 60px;  
+  height: 3px; 
   background: #666;
-}
+} */
 #msgDetail {
     max-width: 1100px;
 }

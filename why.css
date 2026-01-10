@@ -12,8 +12,9 @@ body {
 /* HERO */
 .hero {
   display: flex;
-  height: 80vh;
+  height: 580px;
   position: relative;
+  overflow: hidden;
 }
 
 /* LEFT IMAGE */

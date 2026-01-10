@@ -1,0 +1,105 @@
+.site-wrapper {
+  width: 1210px;        /* FIXED width */
+  margin: 0 auto;      /* center */
+  background: #ffffff;
+  /* min-height: 100vh; */
+  position: relative;
+}
+
+/* PREVENT DESKTOP SHRINKING */
+@media (min-width: 769px) {
+  body {
+    min-width: 1210px;
+  }
+}
+
+/* ===== MOBILE / TABLET ===== */
+@media (max-width: 768px) {
+  body {
+    min-width: 0;
+  }
+
+  .site-wrapper {
+    width: 100%;       /* responsive on mobile */
+    padding: 0 0px;
+  }
+}
+
+/* OUTSIDE BACKGROUND */
+body {
+  background: #ffffff;
+}
+
+.footer-bg {
+background: #f4f4f2;
+}
+.footer-legal-bg {
+background: #000000;
+}
+.footer-logo {
+  position: relative;
+  margin: 0 0 40px;
+  /* font-size: 42px;
+  line-height: 1.15; */
+}
+.footer-logo img {
+  width: 218px;
+  height: 140px;
+  object-fit: cover;
+}
+@media (max-width: 768px) {
+.footer-logo {
+    position: relative;
+    margin: 0;
+    /* font-size: 42px;
+    line-height: 1.15; */
+  }
+  .footer-logo img {
+    width: 160px;
+    height: initial;
+    object-fit: cover;
+  }
+}
+.edge-line {
+  position: relative;
+  width: 100vw;
+  height: 2px;
+  background: #d9d9d9;
+  margin: 40px 0;
+
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+
+.edge-line .edge-dash {
+  position: absolute;
+  left: calc((100vw - 1210px) / 2 + 120px);
+  top: -1px;
+  width: 60px;
+  height: 3px;
+  background: #666;
+}
+
+/* FULL WIDTH DARK GREEN OVERLAY */
+.overlay {
+  position: relative;          /* required for any pseudo-elements later */
+  background: rgba(0, 90, 85, 0.75);
+  width: 100vw;                /* stretch full viewport */
+  margin-left: calc(-50vw + 50%); /* center the section across full screen */
+  padding: 100px 0;
+  box-sizing: border-box;
+  overflow: hidden;            /* prevents horizontal scroll */
+}
+
+/* CENTERED CONTENT */
+.more-container {
+  max-width: 1200px;   /* constrain content */
+  margin: 0 auto;
+  display: grid;
+  /* grid-template-columns: 2fr 2fr; */
+  gap: 60px;
+  align-items: baseline;
+}

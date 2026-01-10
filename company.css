@@ -13,8 +13,9 @@ body {
 /* HERO */
 .hero {
   display: flex;
-  height: 80vh;
+  height: 580px;
   position: relative;
+  overflow: hidden;
 }
 
 /* LEFT IMAGE */
@@ -264,10 +265,23 @@ body {
 }
 /* company data  */
 
+/* FULL WIDTH SECTION */
 .company-data {
+  position: relative;          /* for safety if you add pseudo-elements later */
+  width: 100vw;                /* stretch full viewport */
+  margin-left: calc(-50vw + 50%); /* align full width even inside centered parent */
   padding: 80px 20px;
   background: #ededed;
+  box-sizing: border-box;      /* include padding in width */
+  overflow: hidden;            /* prevent horizontal scroll */
 }
+
+/* CENTERED CONTENT */
+.company-data .inner {
+  max-width: 1210px;           /* same as other sections */
+  margin: 0 auto;
+}
+
 
 .company-container {
   max-width: 1100px;
