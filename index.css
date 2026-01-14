@@ -914,19 +914,19 @@ SERVICE
 
     /* LEFT PANEL */
     .pr-sidebar {
-      padding: 40px 60px;
+      padding: 40px 0px;
       border-right: 1px solid #999;
     }
 
     .pr-label {
-      font-size: 14px;
+      font-size: 16px;
       color: #666;
     }
 
     .pr-heading {
       font-size: 42px;
       margin: 16px 0 30px;
-      font-weight: 500;
+      font-weight: 100;
     }
 
     .pr-viewall-btn {
