@@ -4,10 +4,8 @@ body {
 /* HOLDER locks nav to 1210px layout */
 .hero-nav-holder {
   position: fixed;
-  top: 24px;
-  left: 50%;
-  width: 1210px;
-  transform: translateX(-50%);
+  top: 20px;
+  right: 20px;
   z-index: 9999;
   pointer-events: none; /* allows clicks only on nav */
 }
@@ -49,11 +47,7 @@ body {
 .brand {
   position: fixed;
   top: 20px;
-
-  /* Desktop 1210 lock */
-  left: 51%;
-  transform: translateX(-605px);
-
+  left: 20px;
   z-index: 1100;
 }
 

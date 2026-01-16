@@ -16,6 +16,35 @@
 
   </head>
   <body>
+    <header class="hero">
+
+  <!-- JP TEXT (INDEPENDENT LAYER) -->
+  <p class="jp-text">あなたと旅のあいだに。</p>
+
+  <!-- IMAGE -->
+  <div class="hero-image">
+    <img
+      src="images/WhatsApp Image 2025-12-21 at 00.46.16.jpeg"
+      alt="Travel"
+    />
+  </div>
+
+  <!-- CONTENT -->
+  <div class="hero-content">
+    <h1>
+      TRAVEL<br />
+      STANDARD<br />
+      JAPAN
+    </h1>
+
+    <div class="scroll-vertical" onclick="scrollDown()">
+      <span>SCROLL</span>
+      <div class="line"></div>
+    </div>
+  </div>
+
+</header>
+
     <div class="site-wrapper">
     <!-- NAVBAR -->
      <section>
@@ -67,35 +96,7 @@
 
       </section>
 
-    <header class="hero hero-slide">
-        <div class="hero-overlay"></div>
-        <!-- MOBILE HEADER -->
-      <!-- LEFT IMAGE -->
-      <div class="hero-image">
-        <img
-          src="images/WhatsApp Image 2025-12-21 at 00.46.16.jpeg"
-          alt="Travel"
-        />
-      </div>
-
-      <!-- RIGHT CONTENT -->
-      <div class="hero-content">
-        <p class="jp-text">あなたと旅のあいだに。</p>
-        <!-- <img src="images/logo.png" alt="Travel"/> -->
-        <h1>
-          TRAVEL<br />
-          STANDARD<br />
-          JAPAN
-        </h1>
-
-        <div class="scroll-vertical" onclick="scrollDown()">
-        <span>SCROLL</span>
-        <div class="line"></div>
-        </div>
-
-      </div>
-
-    </header>
+    
     <!-- content -->
     <section class="message-section">
         <div class="message-inner">
@@ -139,7 +140,7 @@
 
           <!-- RIGHT CONTENT CARD -->
           <div class="travel-content">
-            <span class="jp-small">旅する心が私たちの成長の原動力</span>
+            <span class="jp-small">旅する心が<br />私たちの成長の原動力</span>
             <span class="en-small">Our Recent Travel</span>
 
             <h2>
@@ -207,7 +208,7 @@
                 </div>
 
                 <div class="image">
-                    <img src="images/WhatsApp Image 2025-12-21 at 00.46.16.jpeg" alt="team" />
+                    <img src="images/standerd.png" alt="team" />
                 </div>
                 </div>
             </div>
@@ -261,7 +262,7 @@
                 </div>
 
                 <div class="image1">
-                        <img src="images/WhatsApp Image 2025-12-21 at 00.46.16.jpeg" alt="team" />
+                        <img src="images/w2.jpeg" alt="team" />
                 </div>
                 </div>
           </div>
@@ -315,7 +316,7 @@
                     </div>
 
                     <div class="image2">
-                        <img src="images/WhatsApp Image 2025-12-21 at 00.46.16.jpeg" alt="team" />
+                        <img src="images/w1.jpeg" alt="team" />
                     </div>
                 </div>
           </div>
@@ -880,4 +881,75 @@ window.addEventListener("load", function() {
     }
   });
 });
+</script>
+<script>
+  const jpText = document.querySelector(".jp-text");
+  const heroContent = document.querySelector(".hero-content");
+  const heroImage = document.querySelector(".hero-image img");
+
+  let progress = 0;
+  let animating = true;
+
+  document.body.style.overflow = "hidden";
+
+  window.addEventListener(
+    "wheel",
+    (e) => {
+      if (!animating) return;
+      e.preventDefault();
+
+      progress += e.deltaY * 0.0015;
+      progress = Math.min(Math.max(progress, 0), 1);
+
+      /* 1️⃣ JP TEXT MOVE (0 → 0.4) */
+      if (progress <= 0.75) {
+        const p = progress / 0.4;
+        jpText.style.transform = `
+          translate(${ -50 + p * 50 }%, ${ -50 + p * 50 }%)
+        `;
+      }
+
+      /* 2️⃣ CONTENT APPEAR (0.4 → 0.7) */
+      if (progress > 0.4) {
+        const p = Math.min((progress - 0.4) / 0.3, 1);
+        heroContent.style.opacity = p;
+        heroContent.style.transform = `
+          translateX(${ -100 + p * 100 }px)
+        `;
+      }
+
+      /* 3️⃣ IMAGE REVEAL (0.7 → 1) */
+      // if (progress > 0.7) {
+      //   const p = Math.min((progress - 0.7) / 0.3, 1);
+      //   heroImage.style.clipPath = `
+      //     inset(0 ${100 - p * 100}% 0 0)
+      //   `;
+      // }
+      if (progress > 0.7) {
+  let p = Math.min((progress - 0.7) / 0.3, 1);
+  p = p * p * p; // easeOutCubic
+
+  heroImage.style.clipPath = `
+    inset(0 ${100 - p * 100}% 0 0)
+  `;
+}
+
+      /* FINISH */
+      if (progress === 1) {
+        jpText.classList.add("release");
+        document.body.style.overflow = "";
+        animating = false;
+      }
+    },
+    { passive: false }
+  );
+</script>
+<script>
+  // Disable browser scroll restore
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
+  // Always start at top (hero)
+  window.scrollTo(0, 0);
 </script>
