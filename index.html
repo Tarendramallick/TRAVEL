@@ -16,17 +16,20 @@
 
   </head>
   <body>
-    <header class="hero">
 
-  <!-- JP TEXT (INDEPENDENT LAYER) -->
+<!-- LOGO -->
+<div class="brand">
+  <img src="images/logo.png" alt="Logo" />
+</div>
+
+<header class="hero">
+
+  <!-- JP TEXT -->
   <p class="jp-text">あなたと旅のあいだに。</p>
 
   <!-- IMAGE -->
   <div class="hero-image">
-    <img
-      src="images/WhatsApp Image 2025-12-21 at 00.46.16.jpeg"
-      alt="Travel"
-    />
+    <img src="images/WhatsApp Image 2025-12-21 at 00.46.16.jpeg" />
   </div>
 
   <!-- CONTENT -->
@@ -36,7 +39,6 @@
       STANDARD<br />
       JAPAN
     </h1>
-
     <div class="scroll-vertical" onclick="scrollDown()">
       <span>SCROLL</span>
       <div class="line"></div>
@@ -48,11 +50,6 @@
     <div class="site-wrapper">
     <!-- NAVBAR -->
      <section>
-        <!-- BRAND (always visible) -->
-        <div class="brand">
-          <img src="images/logo.png" alt="Travel" />
-        </div>
-
         <!-- DESKTOP NAV ONLY -->
         <div class="hero-nav-holder">
           <nav class="hero-nav">
@@ -882,74 +879,162 @@ window.addEventListener("load", function() {
   });
 });
 </script>
-<script>
-  const jpText = document.querySelector(".jp-text");
-  const heroContent = document.querySelector(".hero-content");
+<!-- <script>
+if (window.innerWidth >= 1024) {
+
   const heroImage = document.querySelector(".hero-image img");
+  const brand = document.querySelector(".brand");
+  const title = document.querySelector(".hero-content h1");
+  const jpText = document.querySelector(".jp-text");
 
   let progress = 0;
-  let animating = true;
+  let isAnimating = true;
 
-  document.body.style.overflow = "hidden";
+  document.body.classList.add("no-scroll");
+
+  function finishAnimation() {
+    isAnimating = false;
+
+    /* LOCK FINAL POSITIONS */
+    title.style.transform = "translateY(0)";
+    brand.style.transform = "translateX(0)";
+    brand.style.opacity = "1";
+
+    document.body.classList.remove("no-scroll");
+  }
 
   window.addEventListener(
     "wheel",
     (e) => {
-      if (!animating) return;
+      if (!isAnimating) return;
+
       e.preventDefault();
 
-      progress += e.deltaY * 0.0015;
+      progress += e.deltaY * 0.0009;
       progress = Math.min(Math.max(progress, 0), 1);
 
-      /* 1️⃣ JP TEXT MOVE (0 → 0.4) */
-      if (progress <= 0.75) {
-        const p = progress / 0.4;
-        jpText.style.transform = `
-          translate(${ -50 + p * 50 }%, ${ -50 + p * 50 }%)
-        `;
-      }
-
-      /* 2️⃣ CONTENT APPEAR (0.4 → 0.7) */
-      if (progress > 0.4) {
-        const p = Math.min((progress - 0.4) / 0.3, 1);
-        heroContent.style.opacity = p;
-        heroContent.style.transform = `
-          translateX(${ -100 + p * 100 }px)
-        `;
-      }
-
-      /* 3️⃣ IMAGE REVEAL (0.7 → 1) */
-      // if (progress > 0.7) {
-      //   const p = Math.min((progress - 0.7) / 0.3, 1);
-      //   heroImage.style.clipPath = `
-      //     inset(0 ${100 - p * 100}% 0 0)
-      //   `;
-      // }
-      if (progress > 0.7) {
-  let p = Math.min((progress - 0.7) / 0.3, 1);
-  p = p * p * p; // easeOutCubic
-
-  heroImage.style.clipPath = `
-    inset(0 ${100 - p * 100}% 0 0)
-  `;
-}
-
-      /* FINISH */
+      /* 🔒 STOP EVERYTHING IMMEDIATELY */
       if (progress === 1) {
-        jpText.classList.add("release");
-        document.body.style.overflow = "";
-        animating = false;
+        finishAnimation();
+        return;
+      }
+
+      /* JP TEXT fade out */
+      if (progress > 0.1) {
+        const p = Math.min((progress - 0.1) / 0.2, 1);
+        jpText.style.opacity = 1 - p;
+      }
+
+      /* IMAGE reveal */
+      if (progress > 0.25) {
+        const p = Math.min((progress - 0.25) / 0.25, 1);
+        heroImage.style.clipPath = `inset(0 ${100 - p * 100}% 0 0)`;
+      }
+
+      /* LOGO enter */
+      if (progress > 0.45) {
+        const p = Math.min((progress - 0.45) / 0.2, 1);
+        brand.style.transform = `translateX(${ -120 + p * 120 }px)`;
+        brand.style.opacity = p;
+      }
+
+      /* TEXT bottom → up */
+      if (progress > 0.6) {
+        const p = Math.min((progress - 0.6) / 0.2, 1);
+        title.style.transform = `translateY(${120 - p * 120}px)`;
+        title.style.opacity = p;
+      }
+
+      /* EXIT RIGHT (only before finish) */
+      if (progress > 0.8) {
+        const p = Math.min((progress - 0.8) / 0.2, 1);
+        title.style.transform = `translateX(${p * 240}px)`;
+        brand.style.transform = `translateX(${p * 240}px)`;
+        brand.style.opacity = 1 - p;
       }
     },
     { passive: false }
   );
-</script>
+}
+</script> -->
 <script>
-  // Disable browser scroll restore
-  if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
-  }
+if (window.innerWidth >= 1024) {
 
-  // Always start at top (hero)
-  window.scrollTo(0, 0);
+  const heroImage = document.querySelector(".hero-image img");
+  const brand = document.querySelector(".brand");
+  const title = document.querySelector(".hero-content h1");
+  const jpText = document.querySelector(".jp-text");
+
+  let progress = 0;
+  let isAnimating = true;
+
+  /* LOCK SCROLLBAR */
+  document.body.classList.add("no-scroll");
+
+  window.addEventListener(
+    "wheel",
+    (e) => {
+      if (!isAnimating) return;
+
+      e.preventDefault();
+
+      /* Drive animation with scroll */
+      progress += e.deltaY * 0.0009;
+      progress = Math.min(Math.max(progress, 0), 1);
+
+      /* JP TEXT fade out */
+      if (progress > 0.1) {
+        const p = Math.min((progress - 0.1) / 0.2, 1);
+        jpText.style.opacity = 1 - p;
+      }
+
+      /* IMAGE reveal */
+      if (progress > 0.25) {
+        const p = Math.min((progress - 0.25) / 0.25, 1);
+        heroImage.style.clipPath = `inset(0 ${100 - p * 100}% 0 0)`;
+      }
+
+      /* LOGO enter */
+      if (progress > 0.45) {
+        const p = Math.min((progress - 0.45) / 0.2, 1);
+        brand.style.transform = `translateX(${ -120 + p * 120 }px)`;
+        brand.style.opacity = p;
+      }
+
+      /* TEXT bottom → up */
+      if (progress > 0.6) {
+        const p = Math.min((progress - 0.6) / 0.2, 1);
+        title.style.transform = `translateY(${120 - p * 120}px)`;
+        title.style.opacity = p;
+      }
+
+      /* TEXT + LOGO exit right (ONLY WHILE ANIMATING) */
+      if (progress > 0.8 && isAnimating) {
+        const p = Math.min((progress - 0.8) / 0.2, 1);
+        title.style.transform = `translateX(${p * 240}px)`;
+        brand.style.transform = `translateX(${p * 240}px)`;
+        brand.style.opacity = 1 - p;
+        title.style.opacity = 1 - p;
+      }
+
+      /* FINISH */
+      if (progress >= 1) {
+        progress = 1;
+        isAnimating = false;
+
+        /* LOCK FINAL STATE */
+        title.style.transform = "translateX(0)";
+        brand.style.transform = "translateX(0)";
+        brand.style.opacity = "1";
+        title.style.opacity = "1";
+
+        document.body.classList.remove("no-scroll"); // 🔓 unlock scroll
+      }
+    },
+    { passive: false }
+  );
+}
 </script>
+
+
+

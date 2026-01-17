@@ -96,38 +96,37 @@ body {
 /* ===== INITIAL STATES ===== */
 
 /* JP text centered on load */
-.jp-text {
-  font-size: 30px;
-  font-weight: 300;
 
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 
-  z-index: 10;
-  background: white;
-  padding: 10px 20px;
-}
+  /* JP text */
+  .jp-text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1200;
+    background: white;
+    padding: 10px 20px;
+    opacity: 1;
+  }
 
-/* Content hidden initially */
-.hero-content {
-  opacity: 0;
-  transform: translateX(-100px);
-}
+  /* Image hidden */
+  .hero-image img {
+    clip-path: inset(0 100% 0 0);
+  }
 
-/* Image hidden initially */
-.hero-image img {
-  clip-path: inset(0 100% 0 0);
-}
+  /* Logo initial */
+  .brand {
+    transform: translateX(-120px);
+    opacity: 0;
+  }
 
-/* JP text returns to layout */
-.jp-text.release {
-  position: absolute;
-  top: 440px; 
-  left: 50.5%;
-  transform: none;
-}
+  /* Bottom text initial */
+  .hero-content h1 {
+    transform: translateY(120px);
+    opacity: 0;
+  }
+
 
 .scroll-vertical {
   position: absolute;
