@@ -76,7 +76,7 @@ body {
 .hero-content {
   position: relative;
   width: 40%;
-  top: 540px;
+  top: 480px;
   background: #fff;
   padding: 0px 40px;
   position: relative;
@@ -89,8 +89,13 @@ body {
 
 
 .hero-content h1 {
-  font-size: 70px;
+  font-size: 90px;
   font-weight: 800;
+  line-height: 1.1;
+}
+.hero-content p {
+  font-size: 32px;
+  font-weight: 100;
   line-height: 1.1;
 }
 /* ===== INITIAL STATES ===== */
