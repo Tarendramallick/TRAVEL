@@ -47,6 +47,34 @@
   </div>
 
 </header>
+<!-- content -->
+    <section class="message-section">
+        <div class="message-inner">
+
+            <div class="message-text">
+            <p>
+                はじめて降り立つ街の風が、あなたの感情をそっと動かす。
+                 <br />いつもと違う空、見慣れない文字、聞き慣れない言葉—
+                そのすべてが、新しい自分への扉を開いてくれる。
+            </p>
+            <p>
+                名前も知らなかった国が、気づけば大切な思い出の一部になっている。
+                <br />何気ない出会いや、ふとした風景が、心の奥に残り続ける。
+                <br />一歩踏み出すたびに、世界が少しずつ「好き」になっていく旅。
+            </p>
+            <p>
+                それはただの移動ではなく、人生を豊かにする体験です。
+                <br />あなたにとって、そんな「かけがえのない瞬間」と出会う旅を。
+                <br />世界がもっと好きになる、その第一歩をここから。
+            </p>
+            <div class="message-btn-wrap">
+            <a href="message.html" class="message-btn">
+                代表メッセージ <span>→</span>
+            </a>
+            </div>
+
+        </div>
+    </section>
 
     <div class="site-wrapper">
     <!-- NAVBAR -->
@@ -94,35 +122,6 @@
 
       </section>
 
-    
-    <!-- content -->
-    <section class="message-section">
-        <div class="message-inner">
-
-            <div class="message-text">
-            <p>
-                はじめて降り立つ街の風が、あなたの感情をそっと動かす。
-                 <br />いつもと違う空、見慣れない文字、聞き慣れない言葉—
-                そのすべてが、新しい自分への扉を開いてくれる。
-            </p>
-            <p>
-                名前も知らなかった国が、気づけば大切な思い出の一部になっている。
-                <br />何気ない出会いや、ふとした風景が、心の奥に残り続ける。
-                <br />一歩踏み出すたびに、世界が少しずつ「好き」になっていく旅。
-            </p>
-            <p>
-                それはただの移動ではなく、人生を豊かにする体験です。
-                <br />あなたにとって、そんな「かけがえのない瞬間」と出会う旅を。
-                <br />世界がもっと好きになる、その第一歩をここから。
-            </p>
-            <div class="message-btn-wrap">
-            <a href="message.html" class="message-btn">
-                代表メッセージ <span>→</span>
-            </a>
-            </div>
-
-        </div>
-    </section>
     <!-- Main Content -->
     <main>
       <!-- Intro Section -->
@@ -881,40 +880,29 @@ window.addEventListener("load", function() {
 });
 </script>
 <script>
-/* ============================= */
-/* FORCE START AT HERO */
-/* ============================= */
 window.addEventListener("load", () => {
   window.scrollTo(0, 0);
 });
 
-/* ============================= */
-/* HERO ANIMATION (DESKTOP ONLY) */
-/* ============================= */
 if (window.innerWidth >= 1024) {
 
+  const hero        = document.querySelector(".hero");
   const heroImage   = document.querySelector(".hero-image img");
   const heroContent = document.querySelector(".hero-content");
   const brand       = document.querySelector(".brand");
   const jpText      = document.querySelector(".jp-text");
   const scroller    = document.querySelector(".scroll-vertical");
+  const message     = document.querySelector(".message-section");
 
   let phase = 1;
   let target = 0;
   let current = 0;
 
-  /* LOCK SCROLL */
   document.body.classList.add("no-scroll");
 
-  /* ============================= */
-  /* 🔴 INITIAL IMAGE STATE (HIDDEN) */
-  /* ============================= */
   heroImage.style.transform = "translateX(-100%) scale(0.65)";
   heroImage.style.borderRadius = "0 40px 40px 0";
 
-  /* ============================= */
-  /* UTILS */
-  /* ============================= */
   const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
   const lerp = (a, b, n) => a + (b - a) * n;
 
@@ -922,30 +910,25 @@ if (window.innerWidth >= 1024) {
   /* PHASE 1 — JP INTRO */
   /* ============================= */
   let introStart = null;
-
   function intro(time) {
     if (!introStart) introStart = time;
-
     const t = Math.min((time - introStart) / 2000, 1);
     jpText.style.opacity = 1 - easeOutCubic(t);
 
-    if (t < 1) {
-      requestAnimationFrame(intro);
-    } else {
+    if (t < 1) requestAnimationFrame(intro);
+    else {
       jpText.style.display = "none";
       phase = 2;
       autoReveal();
     }
   }
-
   requestAnimationFrame(intro);
 
   /* ============================= */
-  /* PHASE 2 — SLIDE IN (20% CARD) */
+  /* PHASE 2 — IMAGE SLIDE */
   /* ============================= */
   function autoReveal() {
     let start = null;
-
     heroContent.style.opacity = "1";
     brand.style.opacity = "1";
     scroller.style.opacity = "1";
@@ -955,78 +938,140 @@ if (window.innerWidth >= 1024) {
       const t = Math.min((time - start) / 1200, 1);
       const e = easeOutCubic(t);
 
-      /* text + brand */
       heroContent.style.transform = `translateY(${40 - e * 40}px)`;
       brand.style.transform = `translateX(${ -40 + e * 40 }px)`;
 
-      /* 🔥 image: OFFSCREEN → 20% visible */
-      const x = -100 + e * 55; // -100% → -45%
-
       heroImage.style.transform =
-        `translateX(${x}%) scale(0.65)`;
+        `translateX(${ -100 + e * 55 }%) scale(0.65)`;
 
-      heroImage.style.borderRadius = "0 40px 40px 0";
-
-      if (t < 1) {
-        requestAnimationFrame(animate);
-      } else {
+      if (t < 1) requestAnimationFrame(animate);
+      else {
         phase = 3;
-        requestAnimationFrame(scrollAnimate);
+        requestAnimationFrame(scrollExpand);
       }
     }
-
     requestAnimationFrame(animate);
   }
 
   /* ============================= */
-  /* PHASE 3 — SCROLL EXPAND */
+  /* PHASE 3 — IMAGE EXPAND */
   /* ============================= */
-  function onWheel(e) {
-    if (phase !== 3) return;
-
-    e.preventDefault();
-    target += e.deltaY * 0.0007;
-    target = Math.min(Math.max(target, 0), 1);
-  }
-
   window.addEventListener("wheel", onWheel, { passive: false });
 
-  function scrollAnimate() {
+  function onWheel(e) {
+    if (phase >= 3) {
+      e.preventDefault();
+      target += e.deltaY * 0.0007;
+      target = Math.min(Math.max(target, 0), 1);
+    }
+  }
+
+  function scrollExpand() {
     current = lerp(current, target, 0.08);
     const t = easeOutCubic(current);
 
-    /* card → full image */
-    const x = -45 + t * 45;   // -45% → 0
-    const s = 0.65 + t * 0.35;// 0.65 → 1
-    const r = 40 - t * 40;    // 40 → 0
-
     heroImage.style.transform =
-      `translateX(${x}%) scale(${s})`;
+      `translateX(${ -45 + t * 45 }%) scale(${0.65 + t * 0.35})`;
 
     heroImage.style.borderRadius =
-      `0 ${r}px ${r}px 0`;
+      `0 ${40 - t * 40}px ${40 - t * 40}px 0`;
 
-    if (current < 0.999) {
-      requestAnimationFrame(scrollAnimate);
-    } else {
-      finishHero();
+    if (current < 0.999) requestAnimationFrame(scrollExpand);
+    else {
+      phase = 4;
+      current = target = 0;
+      hero.classList.add("is-fixed");
+      requestAnimationFrame(pushHero);
     }
   }
 
   /* ============================= */
-  /* FINISH — UNLOCK SCROLL */
+  /* PHASE 4 — PUSH HERO CONTENT */
   /* ============================= */
-  function finishHero() {
-    phase = 4;
-    window.removeEventListener("wheel", onWheel);
+  function pushHero() {
+    current = lerp(current, target, 0.08);
+    const t = easeOutCubic(current);
 
-    heroImage.style.transform = "translateX(0) scale(1)";
-    heroImage.style.borderRadius = "0";
+    heroContent.style.transform =
+      `translateY(${-t * 120}%)`;
 
-    document.body.classList.remove("no-scroll");
+    heroContent.style.opacity = 1 - t;
+
+    message.style.transform =
+      `translateY(${100 - t * 100}vh)`;
+
+    if (current < 0.999) {
+      requestAnimationFrame(pushHero);
+    } else {
+      release();
+    }
   }
+
+  /* ============================= */
+  /* RELEASE SCROLL */
+  /* ============================= */
+  function release() {
+  phase = 5;
+
+  window.removeEventListener("wheel", onWheel);
+
+  /* ============================= */
+  /* FREEZE SCROLL POSITION */
+  /* ============================= */
+  const freezeY = window.scrollY;
+  document.body.style.position = "fixed";
+  document.body.style.top = `-${freezeY}px`;
+  document.body.style.width = "100%";
+
+  /* ============================= */
+  /* FADE + COLLAPSE MESSAGE */
+  /* ============================= */
+  const message = document.querySelector(".message-section");
+
+  if (message) {
+    message.style.transition = "opacity 0.3s ease, height 0.4s ease";
+    message.style.opacity = "0";
+    message.style.height = "0";
+    message.style.overflow = "hidden";
+  }
+
+  /* ============================= */
+  /* CLEAN REMOVE (NEXT FRAME) */
+  /* ============================= */
+  requestAnimationFrame(() => {
+    setTimeout(() => {
+      if (message) message.remove();
+
+      /* ============================= */
+      /* UNFREEZE SCROLL */
+      /* ============================= */
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      window.scrollTo(0, freezeY);
+
+      hero.classList.remove("is-fixed");
+      document.body.classList.remove("no-scroll");
+
+      /* ============================= */
+      /* SMOOTH HANDOFF TO TRAVEL */
+      /* ============================= */
+      const travel = document.querySelector(".travel-section");
+      if (!travel) return;
+
+      requestAnimationFrame(() => {
+        window.scrollTo({
+          top: travel.offsetTop,
+          behavior: "smooth",
+        });
+      });
+    }, 120); // ← critical delay
+  });
+}
+
 }
 </script>
+
 
 <!-- <script>
 if (window.innerWidth >= 1024) {

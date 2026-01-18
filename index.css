@@ -54,6 +54,8 @@ body {
 /* ============================= */
 .hero {
   display: flex;
+  z-index: 999;     
+  background: #fff; 
   height: 100vh;
   position: relative;
   overflow: hidden;
@@ -312,12 +314,35 @@ body {
     font-size: 32px;
   }
 }
+.hero {
+  position: relative;
+}
+
+.hero.is-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+}
+
+.message-section {
+  transform: translateY(100vh);
+  will-change: transform;
+}
+
+.travel-section {
+  transform: none !important;
+  filter: none !important;
+}
 
 /* Intro Section */
 .message-section {
+  position: relative;
   width: 100%;
   padding: 100px 40px;
-  background: #ffffff;
+  z-index: 999;
 }
 
 .message-inner {
