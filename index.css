@@ -49,7 +49,9 @@ body {
 
 
 
-/* HERO */
+/* ============================= */
+/* HERO WRAPPER */
+/* ============================= */
 .hero {
   display: flex;
   height: 100vh;
@@ -57,86 +59,131 @@ body {
   overflow: hidden;
 }
 
+/* ============================= */
 /* LEFT IMAGE */
+/* ============================= */
 .hero-image {
   width: 60%;
   position: relative;
+  overflow: hidden;
 }
 
+/* IMAGE — COMPLETELY HIDDEN INITIALLY */
+/* ============================= */
+/* IMAGE — VISIBLE BUT OFFSET */
+/* ============================= */
 .hero-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+
+  /* ✅ VISIBLE */
+  opacity: 1;
+
+  /* ✅ push image left so only ~20% visible */
+  transform: translateX(-45%) scale(0.7);
+
+  /* ✅ rounded on RIGHT only */
+  border-radius: 0 40px 40px 0;
+
+  /* ✅ NO CLIP PATH */
+  clip-path: none;
+
+  will-change: transform, border-radius;
 }
 
-/* BRAND TEXT */
 
-
+/* ============================= */
 /* RIGHT CONTENT */
+/* ============================= */
 .hero-content {
   position: relative;
   width: 40%;
-  top: 470px;
+  top: 360px;
   background: #fff;
   padding: 0px 40px;
-  position: relative;
-}
-.hero-content img {
-  width: 368px;
-  height: 236px;
-  object-fit: cover;
+
+  /* JS fades this in */
+  opacity: 0;
+  transform: translateY(40px);
 }
 
-
+/* MAIN TITLE */
 .hero-content h1 {
   font-size: 90px;
   font-weight: 800;
   line-height: 1.1;
+
+  /* motion only, NOT visibility */
+  transform: translateY(120px);
 }
+
+/* JP TEXT (inside hero-content after intro) */
 .hero-content p {
   font-size: 32px;
   font-weight: 100;
   line-height: 1.1;
 }
-/* ===== INITIAL STATES ===== */
 
-/* JP text centered on load */
+/* ============================= */
+/* JP INTRO TEXT (CENTERED) */
+/* ============================= */
+.jp-text {
+  font-size: 32px;
+  position: fixed;
+  top: 60%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+  z-index: 1200;
 
+  background: #fff;
+  padding: 10px 0px;
 
-  /* JP text */
-  .jp-text {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1200;
-    background: white;
-    padding: 10px 20px;
-    opacity: 1;
-  }
+  opacity: 1;
+  pointer-events: none;
+}
 
-  /* Image hidden */
-  .hero-image img {
-    clip-path: inset(0 100% 0 0);
-  }
+/* ============================= */
+/* BRAND LOGO */
+/* ============================= */
+.brand {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1100;
 
-  /* Logo initial */
-  .brand {
-    transform: translateX(-120px);
-    opacity: 0;
-  }
+  transform: translateX(-40px);
+  opacity: 0;
+}
 
-  /* Bottom text initial */
-  .hero-content h1 {
-    transform: translateY(120px);
-    opacity: 0;
-  }
+/* ============================= */
+/* SCROLL INDICATOR */
+/* ============================= */
+.scroll-vertical {
+  position: absolute;
+  right: 20px;
+  top: 470px;
+
+  writing-mode: vertical-rl;
+  font-size: 14px;
+  letter-spacing: 0.15em;
+
+  opacity: 0;
+}
+
+/* ============================= */
+/* SCROLL LOCK */
+/* ============================= */
+.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
 
 
 .scroll-vertical {
   position: absolute;
   right: 20px;
-  top: 470px;
+  top: 370px;
   cursor: pointer;
   writing-mode: vertical-rl;
   text-align: center;
