@@ -328,6 +328,7 @@ body {
 }
 
 .message-section {
+  opacity: 1 !important;
   transform: translateY(100vh);
   will-change: transform;
 }

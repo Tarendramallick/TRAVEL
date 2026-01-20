@@ -893,184 +893,148 @@ if (window.innerWidth >= 1024) {
   const jpText      = document.querySelector(".jp-text");
   const scroller    = document.querySelector(".scroll-vertical");
   const message     = document.querySelector(".message-section");
+  const JP_HOLD_TIME = 2000;   // ms (adjust this)
+  const JP_FADE_TIME = 1500; // ms
 
-  let phase = 1;
-  let target = 0;
-  let current = 0;
+  let progress = 0;        // 0 → 3
+  let target   = 1;        // start auto to phase 2
+  let rafId    = null;
+  let autoDone = false;
 
   document.body.classList.add("no-scroll");
 
+  /* INITIAL STATE */
   heroImage.style.transform = "translateX(-100%) scale(0.65)";
   heroImage.style.borderRadius = "0 40px 40px 0";
 
-  const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
+  heroContent.style.opacity = 0;
+  brand.style.opacity = 0;
+  scroller.style.opacity = 0;
+  message.style.transform = "translateY(100vh)";
+
+  const ease = t => 1 - Math.pow(1 - t, 3);
   const lerp = (a, b, n) => a + (b - a) * n;
 
   /* ============================= */
-  /* PHASE 1 — JP INTRO */
+  /* AUTO PLAY (PHASE 1 + 2) */
   /* ============================= */
-  let introStart = null;
-  function intro(time) {
-    if (!introStart) introStart = time;
-    const t = Math.min((time - introStart) / 2000, 1);
-    jpText.style.opacity = 1 - easeOutCubic(t);
+  let autoStart = null;
 
-    if (t < 1) requestAnimationFrame(intro);
-    else {
+function autoIntro(time) {
+  if (!autoStart) autoStart = time;
+
+  const elapsed = time - autoStart;
+
+  /* 🟢 HOLD JP */
+  if (elapsed < JP_HOLD_TIME) {
+    progress = 0;
+  }
+
+  /* 🟡 FADE JP */
+  else if (elapsed < JP_HOLD_TIME + JP_FADE_TIME) {
+    const t = (elapsed - JP_HOLD_TIME) / JP_FADE_TIME;
+    progress = ease(t);
+  }
+
+  /* 🔵 FINISH AUTO */
+  else {
+    progress = 1;
+    autoDone = true;
+    target = 1;
+    updateVisuals();
+    return;
+  }
+
+  updateVisuals();
+  requestAnimationFrame(autoIntro);
+}
+
+requestAnimationFrame(autoIntro);
+
+
+  /* ============================= */
+  /* WHEEL CONTROL (AFTER PHASE 2) */
+  /* ============================= */
+  window.addEventListener("wheel", e => {
+    if (!autoDone) return;
+
+    e.preventDefault();
+    target += e.deltaY * 0.0012;
+
+    /* 🔒 Never go before phase 2 */
+    target = Math.max(1, Math.min(target, 3));
+
+    if (!rafId) rafId = requestAnimationFrame(update);
+  }, { passive: false });
+
+  /* ============================= */
+  /* MAIN UPDATE LOOP */
+  /* ============================= */
+  function update() {
+    progress = lerp(progress, target, 0.08);
+    updateVisuals();
+
+    if (Math.abs(progress - target) > 0.001) {
+      rafId = requestAnimationFrame(update);
+    } else {
+      rafId = null;
+    }
+  }
+
+  /* ============================= */
+  /* VISUAL STATES */
+  /* ============================= */
+  function updateVisuals() {
+
+    /* PHASE 1 — JP */
+    if (progress <= 1) {
+      jpText.style.opacity = 1 - ease(progress);
+    } else {
+      jpText.style.opacity = 0;
       jpText.style.display = "none";
-      phase = 2;
-      autoReveal();
     }
-  }
-  requestAnimationFrame(intro);
 
-  /* ============================= */
-  /* PHASE 2 — IMAGE SLIDE */
-  /* ============================= */
-  function autoReveal() {
-    let start = null;
-    heroContent.style.opacity = "1";
-    brand.style.opacity = "1";
-    scroller.style.opacity = "1";
+    /* PHASE 2 — SLIDE */
+    const slideT = ease(Math.min(progress, 1));
+    heroContent.style.opacity = slideT;
+    brand.style.opacity = slideT;
+    scroller.style.opacity = slideT;
 
-    function animate(time) {
-      if (!start) start = time;
-      const t = Math.min((time - start) / 1200, 1);
-      const e = easeOutCubic(t);
-
-      heroContent.style.transform = `translateY(${40 - e * 40}px)`;
-      brand.style.transform = `translateX(${ -40 + e * 40 }px)`;
-
-      heroImage.style.transform =
-        `translateX(${ -100 + e * 55 }%) scale(0.65)`;
-
-      if (t < 1) requestAnimationFrame(animate);
-      else {
-        phase = 3;
-        requestAnimationFrame(scrollExpand);
-      }
-    }
-    requestAnimationFrame(animate);
-  }
-
-  /* ============================= */
-  /* PHASE 3 — IMAGE EXPAND */
-  /* ============================= */
-  window.addEventListener("wheel", onWheel, { passive: false });
-
-  function onWheel(e) {
-    if (phase >= 3) {
-      e.preventDefault();
-      target += e.deltaY * 0.0007;
-      target = Math.min(Math.max(target, 0), 1);
-    }
-  }
-
-  function scrollExpand() {
-    current = lerp(current, target, 0.08);
-    const t = easeOutCubic(current);
+    heroContent.style.transform = `translateY(${40 - slideT * 40}px)`;
+    brand.style.transform = `translateX(${-40 + slideT * 40}px)`;
 
     heroImage.style.transform =
-      `translateX(${ -45 + t * 45 }%) scale(${0.65 + t * 0.35})`;
+      `translateX(${-100 + slideT * 55}%) scale(0.65)`;
 
-    heroImage.style.borderRadius =
-      `0 ${40 - t * 40}px ${40 - t * 40}px 0`;
+    /* PHASE 3 — EXPAND */
+    if (progress > 1) {
+      const t = ease(Math.min(progress - 1, 1));
+      heroImage.style.transform =
+        `translateX(${-45 + t * 45}%) scale(${0.65 + t * 0.35})`;
 
-    if (current < 0.999) requestAnimationFrame(scrollExpand);
-    else {
-      phase = 4;
-      current = target = 0;
+      heroImage.style.borderRadius =
+        `0 ${40 - t * 40}px ${40 - t * 40}px 0`;
+    }
+
+    /* PHASE 4 — PUSH */
+    if (progress > 2) {
+      const t = ease(Math.min(progress - 2, 1));
       hero.classList.add("is-fixed");
-      requestAnimationFrame(pushHero);
-    }
-  }
-
-  /* ============================= */
-  /* PHASE 4 — PUSH HERO CONTENT */
-  /* ============================= */
-  function pushHero() {
-    current = lerp(current, target, 0.08);
-    const t = easeOutCubic(current);
-
-    heroContent.style.transform =
-      `translateY(${-t * 120}%)`;
-
-    heroContent.style.opacity = 1 - t;
-
-    message.style.transform =
-      `translateY(${100 - t * 100}vh)`;
-
-    if (current < 0.999) {
-      requestAnimationFrame(pushHero);
+      heroContent.style.transform = `translateY(${-t * 120}%)`;
+      message.style.transform = `translateY(${100 - t * 100}vh)`;
     } else {
-      release();
+      hero.classList.remove("is-fixed");
+      message.style.transform = "translateY(100vh)";
+    }
+
+    /* RELEASE */
+    if (progress >= 3) {
+      document.body.classList.remove("no-scroll");
     }
   }
-
-  /* ============================= */
-  /* RELEASE SCROLL */
-  /* ============================= */
-  function release() {
-  phase = 5;
-
-  window.removeEventListener("wheel", onWheel);
-
-  /* ============================= */
-  /* FREEZE SCROLL POSITION */
-  /* ============================= */
-  const freezeY = window.scrollY;
-  document.body.style.position = "fixed";
-  document.body.style.top = `-${freezeY}px`;
-  document.body.style.width = "100%";
-
-  /* ============================= */
-  /* FADE + COLLAPSE MESSAGE */
-  /* ============================= */
-  const message = document.querySelector(".message-section");
-
-  if (message) {
-    message.style.transition = "opacity 0.3s ease, height 0.4s ease";
-    message.style.opacity = "0";
-    message.style.height = "0";
-    message.style.overflow = "hidden";
-  }
-
-  /* ============================= */
-  /* CLEAN REMOVE (NEXT FRAME) */
-  /* ============================= */
-  requestAnimationFrame(() => {
-    setTimeout(() => {
-      if (message) message.remove();
-
-      /* ============================= */
-      /* UNFREEZE SCROLL */
-      /* ============================= */
-      document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.width = "";
-      window.scrollTo(0, freezeY);
-
-      hero.classList.remove("is-fixed");
-      document.body.classList.remove("no-scroll");
-
-      /* ============================= */
-      /* SMOOTH HANDOFF TO TRAVEL */
-      /* ============================= */
-      const travel = document.querySelector(".travel-section");
-      if (!travel) return;
-
-      requestAnimationFrame(() => {
-        window.scrollTo({
-          top: travel.offsetTop,
-          behavior: "smooth",
-        });
-      });
-    }, 120); // ← critical delay
-  });
-}
-
 }
 </script>
+
 
 
 <!-- <script>
