@@ -48,12 +48,12 @@ body {
 .hero-content {
   background: #fff;
   top: 80px;
-  padding: 160px 100px;
+  padding: 160px 60px;
   position: relative;
 }
 .hero-content h1 {
     font-size: 24px;
-    font-weight: 700;
+    font-weight: 100;
     color: #008a7c;
 }
 .hero-content p {
@@ -66,7 +66,7 @@ body {
 
 .jp-text {
   font-size: 20px !important;
-  font-weight: 500 !important;
+  font-weight: 100 !important;
 }
 
 /* .hero-content h1 {
@@ -125,7 +125,7 @@ body {
 
 /* CONTENT CARD */
 .hero-content {
-  position: absolute;   
+  position: relative;   
   top: 300px;
   left: 0px;
   width: 100%;      /* push to bottom */
@@ -137,7 +137,7 @@ body {
       font-size: 14pt !important;
       width: 100%;
       color: #666;
-      font-weight: 200 !important;
+      font-weight: 100 !important;
   }
 
   .hero-content h1 {
@@ -146,7 +146,7 @@ body {
   .hero-content p {
       font-size: 34px;
       margin-top: 2px;
-      font-weight: 700;
+      font-weight: 100;
       
   }
 
@@ -169,7 +169,7 @@ body {
 
 /* philosophy section */
 .philosophy {
-  padding: 80px 20px;
+  padding: 80px 60px;
   background: #fff;
 }
 
@@ -202,7 +202,7 @@ body {
 
 .headline {
   font-size: 22px;
-  font-weight: 100;
+  font-weight: 700;
   margin-bottom: 20px;
 }
 
@@ -219,7 +219,7 @@ body {
 }
 
 .philosophy-image img {
-  max-width: 100%;
+  max-width: 90%;
   height: auto;
   object-fit: contain;
 }
@@ -230,7 +230,10 @@ body {
     flex-direction: column;
     text-align: left;
   }
-
+  .philosophy {
+  padding: 20px 20px;
+  background: #fff;
+}
   .philosophy-image {
     margin-top: 0px;
   }
@@ -254,7 +257,7 @@ body {
 
 .headline {
   font-size: 22px;
-  font-weight: 100;
+  font-weight: 600;
   margin-bottom: 20px;
 }
 
@@ -270,7 +273,7 @@ body {
   position: relative;          /* for safety if you add pseudo-elements later */
   width: 100vw;                /* stretch full viewport */
   margin-left: calc(-50vw + 50%); /* align full width even inside centered parent */
-  padding: 80px 20px;
+  padding: 80px 60px;
   background: #ededed;
   box-sizing: border-box;      /* include padding in width */
   overflow: hidden;            /* prevent horizontal scroll */
@@ -290,7 +293,7 @@ body {
 
 .company-title {
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 100;
   margin-bottom: 40px;
 }
 
@@ -309,7 +312,7 @@ body {
 /* LEFT LABEL */
 .label {
   width: 180px;
-  font-weight: 600;
+  font-weight: 100;
   white-space: nowrap;
 }
 
@@ -334,7 +337,11 @@ body {
     flex-direction: column;
     gap: 10px;
   }
-
+  .company-data {
+   
+    padding: 20px 20px;
+    
+  }
   .label {
     width: 100%;
     font-size: 14px;
@@ -354,7 +361,7 @@ body {
 
 /* map section */
 .access-section {
-  padding: 80px 20px;
+  padding: 80px 60px;
   background: #fff;
 }
 
@@ -365,7 +372,7 @@ body {
 
 .access-title {
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 100;
   margin-bottom: 30px;
 }
 
@@ -429,7 +436,8 @@ body {
 /* TITLE */
 .more-title {
   font-size: 36px;
-  font-weight: 700;
+  font-weight: 100;
+  margin-left: 70px;
   white-space:nowrap;
 }
 
@@ -437,13 +445,14 @@ body {
 .more-links {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px 30px;
+  gap: 20px 20px;
+  margin-right: 60px;
 }
 
 /* PILL BUTTON */
 /* PILL BUTTON */
 .pill {
-  width: 260px;              /* SAME WIDTH */
+  width: 220px;              /* SAME WIDTH */
   height: 64px;              /* SAME HEIGHT */
   border: 2px solid #fff;
   border-radius: 999px;
@@ -509,16 +518,24 @@ body {
 }
 
 @media (max-width: 600px) {
+  .more-title {
+    font-size: 26px;
+    font-weight: 100;
+    text-align: start;
+    margin-left: 20px;
+    white-space: nowrap;
+}
   .more-links {
-    grid-template-columns: 1fr;
+    padding : 10px;
+    gap: 10px;
+    margin-right: 0px;
   }
 
   .pill {
-    padding: 16px 22px;
+    padding: 6px 22px;
     font-size: 15px;
   }
 }
-
 
 
 
@@ -866,7 +883,7 @@ body {
 
 .footer-brand {
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 100;
   margin-bottom: 24px;
   letter-spacing: 0.5px;
 }
@@ -938,7 +955,7 @@ body {
 
 .footer-col h4 {
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 100;
   margin-bottom: 20px;
 }
 
@@ -1014,7 +1031,9 @@ body {
   .container {
     padding: 0 20px;
   }
-
+  .access-section {
+    padding: 20px 20px;
+  }
   .hero {
     min-height: 600px;
   }
@@ -1106,7 +1125,7 @@ body {
   }
 
   .footer {
-    padding: 60px 0 0px;
+    padding: 0px 0 0px;
   }
 
   .footer-grid {

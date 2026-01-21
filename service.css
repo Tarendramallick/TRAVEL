@@ -47,7 +47,7 @@ body {
 .hero-content {
   background: #fff;
   top: 150px;
-  padding: 100px 100px;
+  padding: 100px 60px;
   position: relative;
 }
 .hero-content h1 {
@@ -65,7 +65,7 @@ body {
 
 .jp-text {
   font-size: 20px !important;
-  font-weight: 500 !important;
+  font-weight: 100 !important;
 }
 .scroll-vertical {
   position: absolute;
@@ -137,7 +137,7 @@ body {
       width: 100%;
       line-height: 40px;
       color: #666;
-      font-weight: 200 !important;
+      font-weight: 100 !important;
   }
 
   .hero-content h1 {
@@ -146,7 +146,7 @@ body {
   .hero-content p {
       font-size: 34px;
       margin-top: 2px;
-      font-weight: 700;
+      font-weight: 100;
       
   }
 
@@ -206,7 +206,7 @@ body {
 /* our service */
 
 .services {
-  padding: 20px 100px;
+  padding: 20px 60px;
   margin-top: 10px;
 }
 
@@ -227,14 +227,14 @@ body {
 
 .services-title {
   font-size: 40px;
-  font-weight: 600;
+  font-weight: 100;
   line-height: 1.6;
 }
 
 /* RIGHT */
 .services-heading {
   font-size: 28px;
-  font-weight: 600;
+  font-weight: 100;
   margin-bottom: 28px;
 }
 
@@ -290,7 +290,7 @@ body {
   border-radius: 999px;
   font-size: 20px;
   align-content: center;
-  font-weight: 600;
+  font-weight: 100;
 }
 
 /* CONTENT */
@@ -358,7 +358,7 @@ body {
       padding: 18px 80px;
       border-radius: 999px;
       font-size: 20px;
-      font-weight: 600;
+      font-weight: 100;
       text-align: center;
       align-content: center;
       letter-spacing: 0.05em;
@@ -384,7 +384,7 @@ body {
       display: flex;
       align-items: center;
       font-size: 18px;
-      font-weight: 700;
+      font-weight: 100;
       margin-bottom: 16px;
       color: #000;
     }
@@ -420,9 +420,9 @@ body {
   .title-pill {
     width: auto;
     height: auto;
-    padding: 14px 28px;
+    padding: 40px 28px;
     font-size: 16px;
-    top: -32px;
+    top: -74px;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 999px;
@@ -462,9 +462,9 @@ body {
   .service-title {
     width: auto;
     height: auto;
-    padding: 14px 36px;
+    padding: 40px 36px;
     font-size: 16px;
-    top: -32px;
+    top: -72px;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 999px;
@@ -527,7 +527,7 @@ body {
     /* travel together section */
 
     .future-section {
-  padding: 100px 40px;
+  padding: 20px 60px;
 }
 
 .future-container {
@@ -553,7 +553,7 @@ body {
 
 .main-title {
   font-size: 40px;
-  font-weight: 700;
+  font-weight: 100;
   margin-bottom: 32px;
 }
 
@@ -593,6 +593,7 @@ body {
   color: #fff;
 }
 
+
 /* RIGHT IMAGE */
 .future-image {
   flex: 1;
@@ -617,7 +618,7 @@ body {
   .main-title {
     font-size: 32px;
     font-weight: 100;
-    margin-bottom: 250px;
+    margin-bottom: 300px;
   }
 
   .future-image img {
@@ -641,7 +642,7 @@ body {
       bottom: 60px;
       left: -325px;
       font-size: 160px ;
-      font-weight: 700;
+      font-weight: 100;
       color: rgba(0, 0, 0, 0.05);
       white-space: nowrap;
       pointer-events: none;
@@ -686,10 +687,26 @@ body {
 
     .message-text .quote {
       margin: 36px 0;
-      font-weight: 500;
+      font-weight: 100;
     }
 
     @media (max-width: 768px) {
+      .future-section {
+        padding: 20px 20px;
+      }
+      .future-image {
+        position: relative;
+        margin-top: -120px;
+        flex: 1;
+        display: flex;
+        justify-content: center;
+      }
+      .cta-btn {
+        position: relative;
+        top: 330px;
+        align-self: center;
+        margin-top: 16px;
+      }
 
       .message-section {
         max-width: 100%;
@@ -701,17 +718,28 @@ body {
       .message-content {
         display: flex;
         flex-direction: column;
+        margin: 20px;
         gap: 32px;
         position: relative; /* optional, but can help with layering */
         z-index: 1;         /* keep content above/below image if needed */
       }
-
       .message-image {
-        position: absolute;
-        top: -1100px;             /* bring it into view */
-        left: 0;            /* align to left */
+        position: relative;
         width: 100%;
-        z-index: 10;        /* higher than other elements to be in front */
+        height: 220px;
+        margin-bottom: -200px;
+
+      }
+
+      .message-image img {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        border-radius: 16px;
+        object-fit: cover;
+        top: -1080px;         /* align to left */
+        width: 100%;
+        z-index: 10;    
       }
 
       .message-text {
@@ -756,7 +784,8 @@ body {
 /* TITLE */
 .more-title {
   font-size: 36px;
-  font-weight: 700;
+  font-weight: 100;
+  margin-left: 70px;
   white-space:nowrap;
 }
 
@@ -764,13 +793,14 @@ body {
 .more-links {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px 30px;
+  gap: 20px 20px;
+  margin-right: 60px;
 }
 
 /* PILL BUTTON */
 /* PILL BUTTON */
 .pill {
-  width: 260px;              /* SAME WIDTH */
+  width: 220px;              /* SAME WIDTH */
   height: 64px;              /* SAME HEIGHT */
   border: 2px solid #fff;
   border-radius: 999px;
@@ -836,27 +866,24 @@ body {
 }
 
 @media (max-width: 600px) {
+  .more-title {
+    font-size: 26px;
+    font-weight: 100;
+    text-align: start;
+    margin-left: 20px;
+    white-space: nowrap;
+}
   .more-links {
-    grid-template-columns: 1fr;
+    padding : 10px;
+    gap: 10px;
+    margin-right: 0px;
   }
 
   .pill {
-    padding: 16px 22px;
+    padding: 6px 22px;
     font-size: 15px;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     /* ===========
@@ -1193,7 +1220,7 @@ body {
 
 .footer-brand {
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 100;
   margin-bottom: 24px;
   letter-spacing: 0.5px;
 }
@@ -1265,7 +1292,7 @@ body {
 
 .footer-col h4 {
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 100;
   margin-bottom: 20px;
 }
 

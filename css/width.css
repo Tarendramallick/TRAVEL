@@ -100,7 +100,7 @@ background: #000000;
   margin: 0 auto;
   display: grid;
   /* grid-template-columns: 2fr 2fr; */
-  gap: 60px;
+  gap: 30px;
   align-items: baseline;
 }
 .footer-page-top {

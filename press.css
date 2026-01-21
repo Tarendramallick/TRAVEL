@@ -9,10 +9,12 @@
     }
     .hero-content {
     background: #fff;
-    padding: 150px 100px;
+    padding: 0px 20px;
     position: relative;
+    align-content: end;
+    margin-bottom: 20px;
     }
-     @media (max-width: 786px) {
+    @media (max-width: 786px) {
       .hero {
         min-height: 200px;
       }
@@ -239,7 +241,4 @@
     height: 32px;
     font-size: 14px;
   }
-}
-.edge-line {
-  display: none;
 }

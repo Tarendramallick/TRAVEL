@@ -467,7 +467,8 @@ body {
 /* TITLE */
 .more-title {
   font-size: 36px;
-  font-weight: 700;
+  font-weight: 100;
+  margin-left: 70px;
   white-space:nowrap;
 }
 
@@ -475,13 +476,14 @@ body {
 .more-links {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px 30px;
+  gap: 20px 20px;
+  margin-right: 60px;
 }
 
 /* PILL BUTTON */
 /* PILL BUTTON */
 .pill {
-  width: 260px;              /* SAME WIDTH */
+  width: 220px;              /* SAME WIDTH */
   height: 64px;              /* SAME HEIGHT */
   border: 2px solid #fff;
   border-radius: 999px;
@@ -547,12 +549,21 @@ body {
 }
 
 @media (max-width: 600px) {
+  .more-title {
+    font-size: 26px;
+    font-weight: 100;
+    text-align: start;
+    margin-left: 20px;
+    white-space: nowrap;
+}
   .more-links {
-    grid-template-columns: 1fr;
+    padding : 10px;
+    gap: 10px;
+    margin-right: 0px;
   }
 
   .pill {
-    padding: 16px 22px;
+    padding: 6px 22px;
     font-size: 15px;
   }
 }
