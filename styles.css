@@ -13,7 +13,7 @@
 /* Sidebar */
 .sidebar {
     background: #f6f7f7;
-    width: 180px;
+    width: 200px;
     height: 300px;
     border-radius: 14px;
     margin-left: 55px;
@@ -129,6 +129,7 @@
     width: 100%;
     padding: 16px;
     margin-top: 20px;
+    margin-left: 0;
   }
 
   /* Card layout */
