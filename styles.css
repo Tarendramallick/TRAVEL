@@ -13,8 +13,10 @@
 /* Sidebar */
 .sidebar {
     background: #f6f7f7;
+    width: 180px;
     height: 300px;
     border-radius: 14px;
+    margin-left: 55px;
     padding: 20px;
 }
 
