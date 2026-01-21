@@ -1109,6 +1109,9 @@ body {
     gap: 32px;
   }
 }
+.content {
+    width: 100%;
+}
 .more-wrap {
   text-align: center;
 }
