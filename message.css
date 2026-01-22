@@ -385,6 +385,8 @@ body {
   /* RANDOM IMAGE */
   background: url("images/PP_背景_shutterstock_2549439125-min.jpg")
     center / cover no-repeat;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
   min-height: 320px;
   position: relative;
   color: #fff;

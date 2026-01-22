@@ -737,7 +737,7 @@ body {
         height: 100%;
         border-radius: 16px;
         object-fit: cover;
-        top: -1080px;         /* align to left */
+        top: -920px;         /* align to left */
         width: 100%;
         z-index: 10;    
       }
@@ -760,6 +760,8 @@ body {
   background: url("images/PP_背景_shutterstock_2549439125-min.jpg")
     center / cover no-repeat;
   min-height: 320px;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
   position: relative;
   color: #fff;
 }

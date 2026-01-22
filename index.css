@@ -1363,6 +1363,7 @@ SERVICE
 
   /* PAGE TOP BUTTON */
   .footer-page-top {
+    background: white;
     position: absolute;
     height: 60px;
     margin-top: 95px;

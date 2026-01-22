@@ -123,3 +123,10 @@ background: #000000;
 .footer-menu a:hover {
   text-decoration: underline;   /* or remove if you want */
 }
+@media (max-width: 768px) {
+  .footer-page-top {
+    background: white;
+    height: 80px;
+  }
+ 
+}
