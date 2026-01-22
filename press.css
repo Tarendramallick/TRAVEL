@@ -19,8 +19,7 @@
         min-height: 200px;
       }
       .hero-content {
-      top: 0;
-      padding: 150px 10px;
+      top: 20px;
       background: #fff;
       position: relative;
       }

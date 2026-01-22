@@ -49,129 +49,6 @@ body {
 
 
 
-/* ============================= */
-/* HERO WRAPPER */
-/* ============================= */
-.hero {
-  display: flex;
-  z-index: 999;     
-  background: #fff; 
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
-}
-
-/* ============================= */
-/* LEFT IMAGE */
-/* ============================= */
-.hero-image {
-  width: 60%;
-  position: relative;
-  overflow: hidden;
-}
-
-/* IMAGE — COMPLETELY HIDDEN INITIALLY */
-/* ============================= */
-/* IMAGE — VISIBLE BUT OFFSET */
-/* ============================= */
-.hero-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-
-  /* ✅ VISIBLE */
-  opacity: 1;
-
-  /* ✅ push image left so only ~20% visible */
-  transform: translateX(-45%) scale(0.7);
-
-  /* ✅ rounded on RIGHT only */
-  border-radius: 0 40px 40px 0;
-
-  /* ✅ NO CLIP PATH */
-  clip-path: none;
-
-  will-change: transform, border-radius;
-}
-
-
-/* ============================= */
-/* RIGHT CONTENT */
-/* ============================= */
-.hero-content {
-  position: relative;
-  width: 40%;
-  top: 360px;
-  background: #fff;
-  padding: 0px 40px;
-
-  /* JS fades this in */
-  opacity: 0;
-  transform: translateY(40px);
-}
-
-/* MAIN TITLE */
-.hero-content h1 {
-  font-size: 90px;
-  font-weight: 800;
-  line-height: 1.1;
-
-  /* motion only, NOT visibility */
-  transform: translateY(120px);
-}
-
-/* JP TEXT (inside hero-content after intro) */
-.hero-content p {
-  font-size: 32px;
-  font-weight: 100;
-  line-height: 1.1;
-}
-
-/* ============================= */
-/* JP INTRO TEXT (CENTERED) */
-/* ============================= */
-.jp-text {
-  font-size: 32px;
-  position: fixed;
-  top: 60%;
-  left: 75%;
-  transform: translate(-50%, -50%);
-  z-index: 1200;
-
-  background: #fff;
-  padding: 10px 0px;
-
-  opacity: 1;
-  pointer-events: none;
-}
-
-/* ============================= */
-/* BRAND LOGO */
-/* ============================= */
-.brand {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 1100;
-
-  transform: translateX(-40px);
-  opacity: 0;
-}
-
-/* ============================= */
-/* SCROLL INDICATOR */
-/* ============================= */
-.scroll-vertical {
-  position: absolute;
-  right: 20px;
-  top: 470px;
-
-  writing-mode: vertical-rl;
-  font-size: 14px;
-  letter-spacing: 0.15em;
-
-  opacity: 0;
-}
 
 /* ============================= */
 /* SCROLL LOCK */
@@ -181,25 +58,152 @@ body {
   height: 100vh;
 }
 
+/* ============================= */
+/* HERO WRAPPER */
+/* ============================= */
+.hero {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background: #fff;
+  overflow: hidden;
+  z-index: 1;
+}
 
+/* ============================= */
+/* BRAND LOGO (①) */
+/* ============================= */
+.brand {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1100;
+
+  /* fade-in only */
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+/* ============================= */
+/* JP INTRO TEXT (① → ②) */
+/* ============================= */
+.jp-text {
+  position: fixed;
+  width: 360px;
+  top: 60%;
+  left: 1220px;
+  transform: translate(-50%, -50%);
+  z-index: 1200;
+
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 1.1;
+
+  padding: 10px 0;
+
+  pointer-events: none;
+
+  /* fade-in only at ① */
+  opacity: 0;
+  transition: opacity 0.8s ease,
+              transform 2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* horizontal move in ② */
+.jp-text.move-horizontal {
+  transform: translate(-50%, -50%) translateX(-120px);
+}
+.jp-text.release {
+  position: absolute;
+}
+
+/* ============================= */
+/* LEFT IMAGE (②) */
+/* ============================= */
+.hero-image {
+  width: 60%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+
+  /* fade-in only */
+  opacity: 0;
+  transition: opacity 2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  /* initial design positioning */
+  /* transform: translateX(-45%) scale(0.7);
+
+  border-radius: 0 40px 40px 0;
+  clip-path: none; */
+
+  will-change: transform;
+}
+
+/* ============================= */
+/* RIGHT CONTENT (②) */
+/* ============================= */
+.hero-content {
+  width: 40%;
+  position: relative;
+  padding: 0 40px;
+  background: #fff;
+
+  top: 520px;
+
+  /* fade-in only */
+  opacity: 0;
+  transition: opacity 2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* MAIN TITLE */
+.hero-content h1 {
+  margin: 0;
+  font-size: 90px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+/* JP TEXT INSIDE HERO CONTENT */
+.hero-content h1 p {
+  margin: 0 0 20px;
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+/* ============================= */
+/* SCROLL INDICATOR (③) */
+/* ============================= */
 .scroll-vertical {
   position: absolute;
   right: 20px;
-  top: 370px;
-  cursor: pointer;
+  top: 200px;
+
   writing-mode: vertical-rl;
   text-align: center;
+
   font-size: 14px;
   letter-spacing: 0.15em;
+  cursor: pointer;
+
+  opacity: 0;
+  transition: opacity 1.2s ease;
 }
 
-/* TEXT → BLINK */
+/* TEXT BLINK */
 .scroll-vertical span {
   display: inline-block;
   animation: blinkText 1.6s ease-in-out infinite;
 }
 
-/* LINE → MOVE DOWN */
+/* LINE MOVE */
 .scroll-vertical .line {
   width: 1px;
   height: 100px;
@@ -326,12 +330,12 @@ body {
   height: 100vh;
   z-index: 10;
 }
-
+/* 
 .message-section {
   opacity: 1 !important;
   transform: translateY(100vh);
   will-change: transform;
-}
+} */
 
 .travel-section {
   transform: none !important;
@@ -403,7 +407,6 @@ body {
 
   .message-text p {
     font-size: 16px; /* smaller font for mobile */
-    width: 80%; /* limit width for readability */
     line-height: 1.8;
     margin-bottom: 20px;
   }
@@ -456,7 +459,6 @@ body {
 
 .achievement-title {
   font-size: 60px;
-  margin-bottom: 60px;
   font-weight: 100;
 }
 @media (max-width: 768px) {
@@ -1605,6 +1607,7 @@ SERVICE
   .timeline {
     position: relative;
     padding-left: 72px;
+    
   }
 
   /* Vertical line */
@@ -1641,7 +1644,7 @@ SERVICE
   .timeline-dot {
     position: absolute;
     left: 26px;
-    top: 30px;              /* align with text */
+    top: 0;              /* align with text */
     width: 12px;
     height: 12px;
     background: #fff;
@@ -1675,7 +1678,7 @@ SERVICE
 /* SECTION FULL WIDTH */
 .travel-section {
   width: 100%;
-  padding: 80px 0;
+  padding: 20px 0;
   background: #fff;
 }
 
@@ -1953,9 +1956,8 @@ overflow-x: visible;
   position: relative;
   background: #f5f5f5;
   border-radius: 40px 0px 0px 40px;
-  padding: 60px;
+  padding: 50px;
   display: flex;
-  gap: 40px;
   width: 1100px;
   height: 550px;
   margin-left:auto;
@@ -1976,7 +1978,6 @@ overflow-x: visible;
   border-radius: 0px 40px 40px 0px;
   padding: 60px;
   display: flex;
-  gap: 40px;
   width: 1100px;
   height: 480px;
   margin-top: 100px;
@@ -1999,15 +2000,16 @@ overflow-x: visible;
   top: -60px;
   left: 500px;
   font-size: 120px;
-  font-weight: 700;
+  font-weight: 200;
   color: #000;
+  z-index: 2;
 }
 .count-left {
   position: absolute;
   top: -60px;
   left: 150px;
   font-size: 120px;
-  font-weight: 700;
+  font-weight: 200;
   color: #000;
 }
 .count-3 {
@@ -2015,12 +2017,13 @@ overflow-x: visible;
   top: -50px;
   left: 100px;
   font-size: 120px;
-  font-weight: 700;
+  font-weight: 200;
   color: #000;
 }
 
 /* Content */
 .content h3 {
+  margin-top: 20px;
   font-size: 36px;
   font-weight: 100;
   margin-bottom: 20px;
@@ -2031,14 +2034,14 @@ overflow-x: visible;
   font-weight: 100;
   line-height: 1.6;
   color: #333;
-  max-width: 600px;
 }
 
 /* Image */
 .image img {
   position: relative;
-  width: 417px;
+  width: 380px;
   height: 288px;
+  right: -10px;
   object-fit: cover;
   border-radius: 30px;
 }
@@ -2053,6 +2056,7 @@ overflow-x: visible;
 }
 .image2 img {
   position: relative;
+  margin-left: 20px;
   width: 417px;
   height: 288px;
   object-fit: cover;
@@ -2063,8 +2067,8 @@ overflow-x: visible;
   display: flex;
   gap: 30px;
   position:relative;
-  top:-100px;
-  left:-1%;
+  top:-140px;
+  left:10%;
 }
 .bottom-cards-left {
   display: flex;
@@ -2174,23 +2178,28 @@ overflow-x: visible;
   .image img {
     width: 100%;
     height: 240px;
+    right: 0;
     object-fit: cover;
     border-radius: 20px;
   }
   .image1 img {
     width: 100%;
     right: 0;
+    top: 0;
     height: 240px;
     object-fit: cover;
     border-radius: 20px;
   }
    .image2 img {
     width: 100%;
+    margin-left: 0;
     height: 240px;
     object-fit: cover;
     border-radius: 20px;
   }
-
+  .outline-btn {
+    margin-top: 20px;
+  }
   /* BIG NUMBER ON IMAGE */
   .count,
   .count-left,
@@ -2565,7 +2574,7 @@ overflow-x: visible;
 
 .timeline {
   max-width: 900px;
-  margin: 0 auto 60px;
+  margin-left: 60px;
 }
 
 .timeline-item {
@@ -2573,6 +2582,21 @@ overflow-x: visible;
   align-items: flex-start;
   gap: 40px;
   padding: 28px 0;
+}
+@media (max-width: 768px) {
+
+  .timeline {
+    margin-left: 0;
+    padding-left: 72px;
+    
+  }
+
+  .timeline-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 40px;
+      padding: 0;
+  }
 }
 
 .timeline-item:last-child {
@@ -3090,7 +3114,7 @@ overflow-x: visible;
   }
 
   .footer {
-    padding: 60px 0 0px;
+    padding: 0;
   }
 
   .footer-grid {

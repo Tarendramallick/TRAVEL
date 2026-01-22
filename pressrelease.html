@@ -420,7 +420,7 @@ window.addEventListener("DOMContentLoaded", () => {
         const rowYear = rowDate.split(".")[0]; // Extract year from 2025.10.10
 
         if (year === "all" || rowYear === year) {
-          row.style.display = "flex"; // or "block" depending on your layout
+          row.style.display = "grid"; // or "block" depending on your layout
         } else {
           row.style.display = "none";
         }

@@ -35,7 +35,7 @@
   <!-- CONTENT -->
   <div class="hero-content">
     <h1>
-      <p>あなたと旅のあいだに。</p>
+      <!-- <p>あなたと旅のあいだに。</p> -->
       TRAVEL<br />
       STANDARD<br />
       JAPAN
@@ -880,160 +880,58 @@ window.addEventListener("load", function() {
 });
 </script>
 <script>
-window.addEventListener("load", () => {
-  window.scrollTo(0, 0);
-});
-
-if (window.innerWidth >= 1024) {
-
-  const hero        = document.querySelector(".hero");
-  const heroImage   = document.querySelector(".hero-image img");
-  const heroContent = document.querySelector(".hero-content");
-  const brand       = document.querySelector(".brand");
-  const jpText      = document.querySelector(".jp-text");
-  const scroller    = document.querySelector(".scroll-vertical");
-  const message     = document.querySelector(".message-section");
-  const JP_HOLD_TIME = 2000;   // ms (adjust this)
-  const JP_FADE_TIME = 1500; // ms
-
-  let progress = 0;        // 0 → 3
-  let target   = 1;        // start auto to phase 2
-  let rafId    = null;
-  let autoDone = false;
-
+document.addEventListener("DOMContentLoaded", () => {
   document.body.classList.add("no-scroll");
 
-  /* INITIAL STATE */
-  heroImage.style.transform = "translateX(-100%) scale(0.65)";
-  heroImage.style.borderRadius = "0 40px 40px 0";
+  const brand = document.querySelector(".brand");
+  const jpText = document.querySelector(".jp-text");
+  const heroImage = document.querySelector(".hero-image");
+  const heroContent = document.querySelector(".hero-content");
+  const scroll = document.querySelector(".scroll-vertical");
 
-  heroContent.style.opacity = 0;
-  brand.style.opacity = 0;
-  scroller.style.opacity = 0;
-  message.style.transform = "translateY(100vh)";
+  /* =============================
+     ① LOGO + HEADER + JP TEXT
+     fade-in only (quick & soft)
+  ============================== */
+  setTimeout(() => {
+    if (brand) brand.style.opacity = 1;
+    if (jpText) jpText.style.opacity = 1;
+  }, 100);
 
-  const ease = t => 1 - Math.pow(1 - t, 3);
-  const lerp = (a, b, n) => a + (b - a) * n;
+  /* =============================
+     Pause so JP text is readable
+  ============================== */
+  setTimeout(() => {
 
-  /* ============================= */
-  /* AUTO PLAY (PHASE 1 + 2) */
-  /* ============================= */
-  let autoStart = null;
+    /* =============================
+       ② HERO IMAGE + CONTENT
+       fade-in together
+       JP text slides horizontally
+    ============================== */
+    if (heroImage) heroImage.style.opacity = 1;
+    if (heroContent) heroContent.style.opacity = 1;
+    if (jpText) jpText.classList.add("move-horizontal");
 
-function autoIntro(time) {
-  if (!autoStart) autoStart = time;
+  }, 2000);
 
-  const elapsed = time - autoStart;
+  /* =============================
+     RELEASE JP TEXT (stop sticking)
+  ============================== */
+  setTimeout(() => {
+    if (jpText) jpText.classList.add("release");
+  }, 4000);
 
-  /* 🟢 HOLD JP */
-  if (elapsed < JP_HOLD_TIME) {
-    progress = 0;
-  }
-
-  /* 🟡 FADE JP */
-  else if (elapsed < JP_HOLD_TIME + JP_FADE_TIME) {
-    const t = (elapsed - JP_HOLD_TIME) / JP_FADE_TIME;
-    progress = ease(t);
-  }
-
-  /* 🔵 FINISH AUTO */
-  else {
-    progress = 1;
-    autoDone = true;
-    target = 1;
-    updateVisuals();
-    return;
-  }
-
-  updateVisuals();
-  requestAnimationFrame(autoIntro);
-}
-
-requestAnimationFrame(autoIntro);
-
-
-  /* ============================= */
-  /* WHEEL CONTROL (AFTER PHASE 2) */
-  /* ============================= */
-  window.addEventListener("wheel", e => {
-    if (!autoDone) return;
-
-    e.preventDefault();
-    target += e.deltaY * 0.0012;
-
-    /* 🔒 Never go before phase 2 */
-    target = Math.max(1, Math.min(target, 3));
-
-    if (!rafId) rafId = requestAnimationFrame(update);
-  }, { passive: false });
-
-  /* ============================= */
-  /* MAIN UPDATE LOOP */
-  /* ============================= */
-  function update() {
-    progress = lerp(progress, target, 0.08);
-    updateVisuals();
-
-    if (Math.abs(progress - target) > 0.001) {
-      rafId = requestAnimationFrame(update);
-    } else {
-      rafId = null;
-    }
-  }
-
-  /* ============================= */
-  /* VISUAL STATES */
-  /* ============================= */
-  function updateVisuals() {
-
-    /* PHASE 1 — JP */
-    if (progress <= 1) {
-      jpText.style.opacity = 1 - ease(progress);
-    } else {
-      jpText.style.opacity = 0;
-      jpText.style.display = "none";
-    }
-
-    /* PHASE 2 — SLIDE */
-    const slideT = ease(Math.min(progress, 1));
-    heroContent.style.opacity = slideT;
-    brand.style.opacity = slideT;
-    scroller.style.opacity = slideT;
-
-    heroContent.style.transform = `translateY(${40 - slideT * 40}px)`;
-    brand.style.transform = `translateX(${-40 + slideT * 40}px)`;
-
-    heroImage.style.transform =
-      `translateX(${-100 + slideT * 55}%) scale(0.65)`;
-
-    /* PHASE 3 — EXPAND */
-    if (progress > 1) {
-      const t = ease(Math.min(progress - 1, 1));
-      heroImage.style.transform =
-        `translateX(${-45 + t * 45}%) scale(${0.65 + t * 0.35})`;
-
-      heroImage.style.borderRadius =
-        `0 ${40 - t * 40}px ${40 - t * 40}px 0`;
-    }
-
-    /* PHASE 4 — PUSH */
-    if (progress > 2) {
-      const t = ease(Math.min(progress - 2, 1));
-      hero.classList.add("is-fixed");
-      heroContent.style.transform = `translateY(${-t * 120}%)`;
-      message.style.transform = `translateY(${100 - t * 100}vh)`;
-    } else {
-      hero.classList.remove("is-fixed");
-      message.style.transform = "translateY(100vh)";
-    }
-
-    /* RELEASE */
-    if (progress >= 3) {
-      document.body.classList.remove("no-scroll");
-    }
-  }
-}
+  /* =============================
+     ③ SCROLL INDICATOR
+     appears last
+  ============================== */
+  setTimeout(() => {
+    if (scroll) scroll.style.opacity = 1;
+    document.body.classList.remove("no-scroll");
+  }, 4200);
+});
 </script>
+
 
 
 
