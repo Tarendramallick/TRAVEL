@@ -46,7 +46,8 @@ body {
 .hero-content {
   width: 100%;
   background: #fff;
-  padding: 130px 50px;
+  margin-top: 130px;
+  padding: 50px 50px;
   position: relative;
 }
 .hero-content h1 {
