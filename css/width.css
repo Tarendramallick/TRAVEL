@@ -126,7 +126,14 @@ background: #000000;
 @media (max-width: 768px) {
   .footer-page-top {
     background: white;
-    height: 80px;
+    height: 90px;
+    right: 20px;
+    width: 80px;
+    margin-top: 80px;
+    line-height: 20px;
+    text-align: center;
+    justify-content: center;
+    font-size: 12px;
   }
  
 }
