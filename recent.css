@@ -752,8 +752,9 @@ body {
   /* PAGE TOP BUTTON */
   .footer-page-top {
     background: white;
-    position: absolute;
     height: 60px;
+    right: 0;
+    width: 70px;
     margin-top: 95px;
     justify-content: center;
     font-size: 12px;
