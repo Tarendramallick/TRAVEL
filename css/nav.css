@@ -112,7 +112,8 @@ body {
 /* MOBILE FIX */
 @media (max-width: 768px) {
   .brand {
-    left: 20px;          /* reset */
+    left: 20px;      
+    width: 50%;    /* reset */
     transform: none;    /* 🔥 REQUIRED */
     top: 20px;
 
@@ -124,7 +125,7 @@ body {
 @media (max-width: 768px) {
   .mobile-header {
     position: absolute;
-    top: 16px;
+    top: 20px;
     right: 16px;
     z-index: 100;
 
@@ -136,8 +137,8 @@ body {
   /* HAMBURGER BUTTON */
   .mobile-hamburger {
     position: fixed;
-    width: 70px;
-    height: 70px;
+    width: 62px;
+    height: 62px;
     top: 20px;
     
     background: #000;
@@ -150,8 +151,8 @@ body {
   }
 
   .mobile-hamburger span {
-    width: 30px;
-    height: 3px;
+    width: 24px;
+    height: 2px;
     background: #fff;
     margin: 0 auto;
     display: block;
@@ -192,10 +193,5 @@ body {
 }
 .hero-nav {
     display: none;
-  }
-
-  .scroll-vertical {
-    display: none;
-  }
-  
+  }  
 }

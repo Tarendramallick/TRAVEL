@@ -4,6 +4,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+html.is-locked,
+body.is-locked {
+  height: 100%;
+  overflow: hidden;
+}
 
 body {
    font-family: "Roboto", "Noto Sans JP", sans-serif;
@@ -57,7 +62,6 @@ body {
   overflow: hidden;
   height: 100vh;
 }
-
 /* ============================= */
 /* HERO WRAPPER */
 /* ============================= */
@@ -98,7 +102,7 @@ body {
   pointer-events: none;
   will-change: transform, opacity;
 
-  font-size: clamp(18px, 3vw, 44px);
+  font-size: clamp(18px, 3vw, 38px);
   line-height: 1.1;
 
   transition:
@@ -138,13 +142,6 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-
-  /* initial design positioning */
-  /* transform: translateX(-45%) scale(0.7);
-
-  border-radius: 0 40px 40px 0;
-  clip-path: none; */
-
   will-change: transform;
 }
 
@@ -346,8 +343,8 @@ body {
     padding: 40px 40px;
   }
   .hero-content img {
-    margin-top: 10px;
-    width: 50% ;
+    margin-top: 20px;
+    width: 60% ;
   }
 
   .jp-text {
@@ -373,10 +370,6 @@ body {
   }
 
   .hero-nav {
-    display: none;
-  }
-
-  .scroll-vertical {
     display: none;
   }
   
@@ -427,6 +420,10 @@ body {
   padding: 0 0px;
   position: relative;
 }
+.message-inner {
+  background: transparent;
+}
+
 
 /* TEXT */
 .message-text p {
@@ -435,6 +432,10 @@ body {
   margin-bottom: 28px;
   color: #000;
   letter-spacing: 0.02em;
+}
+.message-text p {
+  color: #000;
+  text-shadow: 0 1px 2px rgba(255,255,255,0.4);
 }
 
 /* BUTTON WRAPPER */
@@ -473,7 +474,6 @@ body {
 
   .message-inner {
     max-width: 100%;
-    padding: 0 15px;
   }
 
   .message-text p {
