@@ -19,34 +19,25 @@
 
 <!-- LOGO -->
 <div class="brand">
-  <img src="images/logo.png" alt="Logo" />
+  <img src="images/logo.svg" alt="Logo" />
 </div>
 
 <header class="hero">
-
-  <!-- JP TEXT -->
   <p class="jp-text">あなたと旅のあいだに。</p>
 
-  <!-- IMAGE -->
   <div class="hero-image">
     <img src="images/WhatsApp Image 2025-12-21 at 00.46.16.jpeg" />
   </div>
 
-  <!-- CONTENT -->
   <div class="hero-content">
-    <h1>
-      <!-- <p>あなたと旅のあいだに。</p> -->
-      TRAVEL<br />
-      STANDARD<br />
-      JAPAN
-    </h1>
+    <img src="images/logo.svg" alt="Logo" />
     <div class="scroll-vertical" onclick="scrollDown()">
       <span>SCROLL</span>
       <div class="line"></div>
     </div>
   </div>
-
 </header>
+
 <!-- content -->
     <section class="message-section">
         <div class="message-inner">
@@ -917,6 +908,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =============================
      RELEASE JP TEXT (stop sticking)
   ============================== */
+  
   setTimeout(() => {
     if (jpText) jpText.classList.add("release");
   }, 4000);
@@ -932,87 +924,70 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-
-
-
-<!-- <script>
-if (window.innerWidth >= 1024) {
-
-  const heroImage = document.querySelector(".hero-image img");
-  const brand = document.querySelector(".brand");
-  const title = document.querySelector(".hero-content h1");
+<script>
+document.addEventListener("DOMContentLoaded", () => {
   const jpText = document.querySelector(".jp-text");
+  const hero = document.querySelector(".hero");
+  const heroContentImg = document.querySelector(".hero-content img");
 
-  let progress = 0;
-  let isAnimating = true;
+  /* MOVE JP TEXT — exact target */
+  setTimeout(() => {
+    if (!jpText || !heroContentImg) return;
 
-  /* LOCK SCROLLBAR */
-  document.body.classList.add("no-scroll");
+    const jpRect = jpText.getBoundingClientRect();
+    const imgRect = heroContentImg.getBoundingClientRect();
 
-  window.addEventListener(
-    "wheel",
-    (e) => {
-      if (!isAnimating) return;
+    // 🔑 distance needed so JP left == image left
+    const deltaX = imgRect.left - jpRect.left;
 
-      e.preventDefault();
+    jpText.style.setProperty("--jp-dx", `${deltaX}px`);
+    jpText.classList.add("move-horizontal");
+  }, 2000);
 
-      /* Drive animation with scroll */
-      progress += e.deltaY * 0.0009;
-      progress = Math.min(Math.max(progress, 0), 1);
+  /* RELEASE — NO VISUAL CHANGE */
+  setTimeout(() => {
+    if (!jpText || !hero) return;
 
-      /* JP TEXT fade out */
-      if (progress > 0.1) {
-        const p = Math.min((progress - 0.1) / 0.2, 1);
-        jpText.style.opacity = 1 - p;
-      }
+    const rect = jpText.getBoundingClientRect();
+    const heroRect = hero.getBoundingClientRect();
 
-      /* IMAGE reveal */
-      if (progress > 0.25) {
-        const p = Math.min((progress - 0.25) / 0.25, 1);
-        heroImage.style.clipPath = `inset(0 ${100 - p * 100}% 0 0)`;
-      }
+    const left = rect.left + window.scrollX - heroRect.left;
+    const top  = rect.top  + window.scrollY - heroRect.top;
 
-      /* LOGO enter */
-      if (progress > 0.45) {
-        const p = Math.min((progress - 0.45) / 0.2, 1);
-        brand.style.transform = `translateX(${ -120 + p * 120 }px)`;
-        brand.style.opacity = p;
-      }
+    jpText.style.transition = "none";
+    jpText.style.position = "absolute";
+    jpText.style.left = `${left}px`;
+    jpText.style.top = `${top}px`;
+    jpText.style.transform = "translate3d(0,0,0)";
 
-      /* TEXT bottom → up */
-      if (progress > 0.6) {
-        const p = Math.min((progress - 0.6) / 0.2, 1);
-        title.style.transform = `translateY(${120 - p * 120}px)`;
-        title.style.opacity = p;
-      }
-
-      /* TEXT + LOGO exit right (ONLY WHILE ANIMATING) */
-      if (progress > 0.8 && isAnimating) {
-        const p = Math.min((progress - 0.8) / 0.2, 1);
-        title.style.transform = `translateX(${p * 240}px)`;
-        brand.style.transform = `translateX(${p * 240}px)`;
-        brand.style.opacity = 1 - p;
-        title.style.opacity = 1 - p;
-      }
-
-      /* FINISH */
-      if (progress >= 1) {
-        progress = 1;
-        isAnimating = false;
-
-        /* LOCK FINAL STATE */
-        title.style.transform = "translateX(0)";
-        brand.style.transform = "translateX(0)";
-        brand.style.opacity = "1";
-        title.style.opacity = "1";
-
-        document.body.classList.remove("no-scroll"); // 🔓 unlock scroll
-      }
-    },
-    { passive: false }
-  );
-}
+    hero.appendChild(jpText);
+  }, 4000);
+});
 </script>
 
 
- -->
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  if (window.innerWidth > 768) return;
+
+  const jp = document.querySelector(".jp-text");
+  const img = document.querySelector(".hero-content img");
+
+  if (!jp || !img) return;
+
+  setTimeout(() => {
+    const jpRect = jp.getBoundingClientRect();
+    const imgRect = img.getBoundingClientRect();
+
+    const gap = 12;
+
+    const targetTop = imgRect.top - jpRect.height - gap;
+    const moveY = targetTop - jpRect.top;
+
+    jp.style.transition = "transform 2s cubic-bezier(0.25,1,0.5,1)";
+    jp.style.transform = `translateY(calc(-50% + ${moveY}px))`;
+
+  }, 2000);
+});
+</script>

@@ -10,20 +10,66 @@ body {
   pointer-events: none; /* allows clicks only on nav */
 }
 
-/* ACTUAL NAV */
+/* NAV CONTAINER */
 .hero-nav {
-  width: 960px;
-  height: 60px;
-  margin-left: auto;   /* push to right inside 1210 */
+  width: 75vw;                   /* always 70% of screen width */
+  max-width: 100%;
+  margin-left: auto;             /* push to right */
+  
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: clamp(12px, 1.5vw, 30px);    /* spacing between items */
+  
+  /* Responsive height */
+  height: clamp(40px, 4vw, 80px);    /* scales from small → big screens */
+  
+  padding: clamp(6px, 1vw, 16px) clamp(10px, 2vw, 24px); /* inner spacing scales */
+  
   background: rgba(243, 243, 243, 0.6);
   backdrop-filter: blur(8px);
   border-radius: 999px;
-  padding: 16px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
   pointer-events: auto;
 }
+
+/* NAV LINKS */
+.hero-nav ul {
+  display: flex;
+  gap: clamp(8px, 1.5vw, 30px);
+  list-style: none;
+
+  /* text scales properly */
+  font-size: clamp(12px, 1vw, 18px);
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+/* BUTTON */
+.hero-nav button {
+  background: #0b8f7a;
+  color: #fff;
+  border: none;
+
+  /* responsive padding */
+  padding: clamp(6px, 0.8vw, 14px) clamp(10px, 1.5vw, 24px);
+  
+  /* responsive font */
+  font-size: clamp(12px, 1vw, 16px);
+  line-height: 1.2;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* LINKS */
+.hero-nav a,
+.mobile-menu a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
 /* Desktop */
 @media (min-width: 769px) {
   .mobile-header,
@@ -46,15 +92,22 @@ body {
 /* BRAND aligned to 1210px layout */
 .brand {
   position: fixed;
-  top: 20px;
-  left: 20px;
+  top: clamp(12px, 2vw, 20px);
+  left: clamp(12px, 2vw, 20px);
   z-index: 1100;
 }
 
 .brand img {
-  width: 125px;
+  width: 50%;
   height: auto;
 }
+@media (min-width: 2000px) {
+  .brand img {
+  width: 100%;
+  height: auto;
+}
+}
+
 
 /* MOBILE FIX */
 @media (max-width: 768px) {
@@ -65,40 +118,6 @@ body {
 
     z-index: 9999;
   }
-}
-
-
-
-/* NAV TEXT */
-.hero-nav ul {
-  display: flex;
-  gap: 30px;
-  list-style: none;
-  font-size: 12px;  
-  font-weight: ;          /* ⬅ balanced */
-  line-height: 1.2;
-  white-space: nowrap;
-}
-
-/* BUTTON */
-.hero-nav button {
-  background: #0b8f7a;
-  color: #fff;
-  border: none;
-  padding: 10px 16px;          /* ⬅ matches nav height */
-  font-size: 12px;
-  line-height: 1.2;
-  border-radius: 999px;
-  cursor: pointer;
-}
-.hero-nav a,
-.mobile-menu a {
-  text-decoration: none;
-  color: inherit;
-}
-/* HIDE MOBILE HEADER BY DEFAULT */
-.mobile-header {
-  display: none;
 }
 
 /* SHOW ONLY ON MOBILE */

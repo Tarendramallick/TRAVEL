@@ -90,40 +90,34 @@ body {
 /* ============================= */
 .jp-text {
   position: fixed;
-
-  /* TRUE CENTER */
   top: 50%;
-  left: 58%;
-  transform: translate(-50%, -50%);
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
 
   z-index: 1200;
   pointer-events: none;
+  will-change: transform, opacity;
 
-  /* 🔥 RESPONSIVE SIZE (hero-based) */
-  font-size: min(5vh, 4vw);  
-  font-weight: 300;
+  font-size: clamp(18px, 3vw, 44px);
   line-height: 1.1;
 
-  /* Responsive width */
-  width: 60vw;
-  max-width: 600px;
-
-  padding: 0.5em 0;
-
-  /* fade-in only at ① */
-  opacity: 0;
   transition:
     opacity 0.8s ease,
-    transform 2s cubic-bezier(0.25, 1, 0.5, 1);
+    transform 1.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-
-/* horizontal move in ② */
+/* 🔥 animate EXACTLY to target */
 .jp-text.move-horizontal {
-  transform: translate(-50%, -50%) translateX(364px);
+  transform: translate3d(
+    calc(-50% + var(--jp-dx)),
+    -50%,
+    0
+  );
 }
-.jp-text.release {
-  position: absolute;
+@media (min-width: 2400px) {
+  .jp-text {
+    font-size: clamp(18px, 3vw, 72px);
+  }
 }
 
 /* ============================= */
@@ -170,6 +164,9 @@ body {
 
   opacity: 0;
   transition: opacity 2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.hero-content img {
+  width: 90% ;
 }
 .hero-content h1 {
   margin: 0;
@@ -351,11 +348,10 @@ body {
 
   .jp-text {
   font-size: 24px;
-  margin-left: 18px;
   width: calc(100% - 36px);
 
   position: fixed;
-  left: 0;
+  left: 20px;
   top: 50%;
 
   transform: translateY(-50%);
