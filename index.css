@@ -345,6 +345,10 @@ body {
   .hero-content {
     padding: 40px 40px;
   }
+  .hero-content img {
+    margin-top: 10px;
+    width: 50% ;
+  }
 
   .jp-text {
   font-size: 34px;
