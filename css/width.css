@@ -29,7 +29,11 @@
 body {
   background: #ffffff;
 }
-
+.outer-layer {
+  position: relative;
+  background: #ffffff;
+  z-index: 20;
+}
 .footer-bg {
 background: #f4f4f2;
 }

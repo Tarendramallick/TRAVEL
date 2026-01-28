@@ -21,6 +21,7 @@ body {
   background: #ffffff;
   /* min-height: 100vh; */
   position: relative;
+  z-index: 10;
 }
 .footer-bg {
 background: #f4f4f2;
@@ -132,17 +133,18 @@ body {
   height: 100%;
   position: relative;
   overflow: hidden;
-
   /* fade-in only */
   opacity: 0;
   transition: opacity 2s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .hero-image img {
-  width: 100%;
+  width: 60%;
   height: 100%;
+  position: fixed;
   object-fit: cover;
   will-change: transform;
+  z-index: -999;
 }
 
 /* ============================= */
@@ -338,6 +340,10 @@ body {
   .hero-content {
     width: 100%;
   }
+  .hero-image img {
+    width: 100%;
+    position: relative;
+  }
 
   .hero-content {
     padding: 40px 40px;
@@ -411,7 +417,8 @@ body {
   position: relative;
   width: 100%;
   padding: 100px 40px;
-  z-index: 999;
+  z-index: 10;
+  background: transparent;
 }
 
 .message-inner {
@@ -469,7 +476,9 @@ body {
 /* MOBILE VIEW */
 @media (max-width: 768px) {
   .message-section {
+    background: white;
     padding: 5px 20px; /* reduce padding for smaller screens */
+    z-index: 0;
   }
 
   .message-inner {
