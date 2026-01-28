@@ -285,7 +285,7 @@ body {
 }
 
 /* TEXT BLINK */
-@keyframes blinkText {
+/* @keyframes blinkText {
   0% {
     opacity: 0;
   }
@@ -301,7 +301,7 @@ body {
   100% {
     opacity: 0;
   }
-}
+} */
 
 /* LINE UP → DOWN */
 @keyframes lineMoveDown {
@@ -331,6 +331,10 @@ body {
 
 
 @media screen and (max-width: 768px) {
+  .scroll-vertical span {
+    display: none;
+    animation: blinkText 1.6s ease-in-out infinite;
+}
   .hero {
     height: auto;
     flex-direction: column; /* stack image and content */
