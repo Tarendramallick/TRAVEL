@@ -443,6 +443,7 @@ body {
   padding: 100px 40px;
   z-index: 10;
   background: transparent;
+  margin: 40px 0 40px 0;
 }
 
 .message-inner {
@@ -460,9 +461,9 @@ body {
 .message-text p {
   font-size: 20px;
   line-height: 2.2;
-  margin-bottom: 28px;
+  margin-bottom: 38px;
   color: #000;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.14em;
 }
 .message-text p {
   color: #000;
