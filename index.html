@@ -39,6 +39,7 @@
 </header>
 
 <!-- content -->
+ <div class="global-blur-overlay"></div>
  <section class="message-section">
         <div class="message-inner">
 
@@ -988,5 +989,24 @@ document.addEventListener("DOMContentLoaded", () => {
     jp.style.transform = `translateY(calc(-50% + ${moveY}px))`;
 
   }, 2000);
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const messageSection = document.querySelector(".message-section");
+  const blurOverlay = document.querySelector(".global-blur-overlay");
+
+  if (!messageSection || !blurOverlay) return;
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      blurOverlay.classList.toggle("is-active", entry.isIntersecting);
+    },
+    {
+      threshold: 0.2, // activates when section starts appearing
+    }
+  );
+
+  observer.observe(messageSection);
 });
 </script>
