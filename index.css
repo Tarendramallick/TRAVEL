@@ -104,7 +104,8 @@ body {
   will-change: transform, opacity;
 
   font-size: clamp(18px, 3vw, 34px);
-  font-weight: 600;
+  letter-spacing: 0.14em;
+  font-weight: 500;
   line-height: 1.1;
 
   transition:
