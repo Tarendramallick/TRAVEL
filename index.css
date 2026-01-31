@@ -660,6 +660,7 @@ GROWTH
   font-size: 16px;
   line-height: 1.8;
   max-width: 700px;
+  margin-bottom: 20px;
 }
 
     /* ===== SLIDER WRAPPER ===== */
@@ -740,8 +741,8 @@ GROWTH
 }
 
 .card-content.detailed h3 {
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 19px;
+  font-weight: 100;
   margin-bottom: 24px;
 }
 
@@ -751,7 +752,7 @@ GROWTH
 
 .card-content.detailed h4 {
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 100;
   color: #008a7c;
   margin-bottom: 6px;
 }
@@ -2039,21 +2040,17 @@ SERVICE
 
 .section-one{
   background: #ffffff;
-  padding: 200px 0px 0px 60px;
   overflow-x: visible;
- 
 }
 .section-two{
   background: #ffffff;
- padding: 0px 0px 0px 60px;
-overflow-x: visible;
- 
+  padding: 0px 0px 0px 60px;
+  overflow-x: visible;
 }
 .section-three{
   background: #ffffff;
- padding: 30px 0px 0px 60px;
-overflow-x: visible;
- 
+  padding: 30px 0px 0px 60px;
+  overflow-x: visible;
 }
 
 /* Layout */
@@ -2105,9 +2102,8 @@ overflow-x: visible;
   border-radius: 0px 40px 40px 0px;
   padding: 60px;
   display: flex;
-  width: 1100px;
+  width: 1150px;
   height: 480px;
-  margin-top: 100px;
   margin-left: -80px;
 }
 .main-card-left::before {
@@ -2124,30 +2120,49 @@ overflow-x: visible;
 /* Big number */
 .count {
   position: absolute;
-  top: -60px;
-  left: 500px;
+  top: -45px;
+  right: 260px;
   font-size: 120px;
-  font-weight: 200;
+  font-weight: 500;
   color: #000;
   z-index: 2;
 }
 .count-left {
   position: absolute;
-  top: -60px;
-  left: 150px;
+  top: -40px;
+  left: 100px;
   font-size: 120px;
-  font-weight: 200;
+  font-weight: 500;
   color: #000;
 }
 .count-3 {
   position: absolute;
-  top: -50px;
+  top: -48px;
   left: 100px;
   font-size: 120px;
-  font-weight: 200;
+  font-weight: 500;
   color: #000;
 }
-
+.content {
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 65%;
+}
+.content-1 {
+  width: 55%;
+}
+.content-1 h3 {
+  font-size: 36px;
+  font-weight: 100;
+  margin-bottom: 20px;
+}
+.content-1 p {
+  font-size: 18px;
+  font-weight: 100;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+  color: #333;
+}
 /* Content */
 .content h3 {
   margin-top: 20px;
@@ -2160,22 +2175,24 @@ overflow-x: visible;
   font-size: 18px;
   font-weight: 100;
   line-height: 1.6;
+  letter-spacing: 0.04em;
   color: #333;
 }
 
 /* Image */
 .image img {
-  position: relative;
-  width: 380px;
-  height: 288px;
-  right: -10px;
+  position: absolute;
+  width: 417px;
+  top: 50px;
+  right: 0px;
+  height: 300px;
   object-fit: cover;
   border-radius: 30px;
 }
 .image1 img {
-  position: relative;
-  right: -100px;
-  top: -30px;
+  position: absolute;
+  right: -40px;
+  top: 40px;
   width: 417px;
   height: 288px;
   object-fit: cover;
@@ -2204,13 +2221,19 @@ overflow-x: visible;
   top:-100px;
   left:0%;
 }
-
+.bottom-cards-3 {
+  display: flex;
+  gap: 30px;
+  position:relative;
+  top:-140px;
+  left:20px;
+}
 .green-card {
   position: relative;
   width:250px;
   background: #007f73;
   color: #ffffff;
-  border-radius: 24px;
+  border-radius: 20px;
   padding: 28px 24px;
   min-height: 160px;
 
@@ -2224,6 +2247,7 @@ overflow-x: visible;
 }
 
 .green-card p {
+  font-weight: 100;
   margin: 0;
 }
 
@@ -2246,7 +2270,7 @@ overflow-x: visible;
 } */
  .green-card .arrow {
   position: absolute;
-  bottom:20px;   /* adjust */
+  bottom:10px;   /* adjust */
   right: 20px;    /* adjust */
 
   width: 36px;
